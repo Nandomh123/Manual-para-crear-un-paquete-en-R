@@ -38,49 +38,47 @@
 
 %---------------------------------------------------------------------------------------------------
 \frontmatter
-% Contenidos
 <<cap01, child='01_cobertura.Rnw'>>=
+
 @
 
 <<cap02, child='02_contenido.Rnw'>>=
 @
 
-%---------------------------------------------------------------------------------------------------
-% Cuerpo del estudio
+% Cuerpo del manual
 \mainmatter
-
-<<cap03, child='03_resumen_ejecutivo.Rnw'>>=
- @
-
-<<cap04, child='04_introduccion.Rnw'>>=
+<<cap03, child='04_introduccion.Rnw'>>=
 @
 
-<<cap05, child='05_reglamentacion.Rnw'>>=
+<<cap04, child='06_analisis_contexto.Rnw'>>=
 @
 
-<<cap06, child='06_analisis_contexto.Rnw'>>=
-@
+% <<cap05, child='05_reglamentacion.Rnw'>>=
+% @
 
-<<cap08, child='08_demografia.Rnw'>>=
-@
+% <<cap06, child='06_analisis_contexto.Rnw'>>=
+% @
 
-<<cap10, child='10_hipotesis.Rnw'>>=
-@
+% <<cap08, child='08_demografia.Rnw'>>=
+% @
+
+% <<cap10, child='10_hipotesis.Rnw'>>=
+% @
 
 %<<cap11, child='11_riesgos.Rnw'>>=
 % @
 
-<<cap12, child='12_situacion.Rnw'>>=
-@
+% <<cap12, child='12_situacion.Rnw'>>=
+% @
 
 % <<cap13, child='13_sensibilidad.Rnw'>>=
 % @
 
-<<cap14, child='14_conclusiones.Rnw'>>=
-@
+% <<cap14, child='14_conclusiones.Rnw'>>=
+% @
 
-<<cap15, child='15_opinion_actuarial.Rnw'>>=
-@
+% <<cap15, child='15_opinion_actuarial.Rnw'>>=
+% @
 
 % %---------------------------------------------------------------------------------------------------
 % % Apéndices

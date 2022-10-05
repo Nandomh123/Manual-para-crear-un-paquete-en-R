@@ -3,81 +3,19 @@
 \label{chap_Intro}
 
 
-El artículo 368 de la \legalcite{ConsEcu:2008} determina que:
+En {\bf R}, la unidad fundamental del código compartible es el paquete. Un paquete agrupa código, datos, documentación y pruebas, y es fácil de compartir con otros. A partir de junio de 2022, había más de 18 000 paquetes disponibles en {\bf CRAN} ( {\bf C}omprehensive {\bf R} {\bf A}rchive {\bf N}etwork). La mayor parte de la población que usa el software estadístico {\bf RStudio}, ya sabe cómo trabajar con paquetes de las siguientes maneras:
 
-\begin{displayquote}
-\textbf{Art. 368.-} El sistema de seguridad social comprenderá las entidades públicas, normas, políticas, recursos y prestaciones de seguridad social, y funcionará con base en criterios de sostenibilidad, eficiencia, celeridad y transparencia. El Estado normará, regulará y controlará las actividades relacionadas con la seguridad social. 
-\end{displayquote}
+\begin{itemize}
+\item Se instala desde CRAN usando la sintaxis {\bf install.packages("Nombre\_paquete")}.
+\item Se lo usa en R mediante {\bf library(Nombre\_paquete)}.
+\item Se accede a las ayudas de las funciones usando  {\bf ?Nombre\_Funcion}.
+\end{itemize}
 
-El Instituto Ecuatoriano de Seguridad Social (IESS) es la entidad responsable de la prestación de las contingencias del seguro universal obligatorio de sus afiliados; y, su organización se encuentra determinada en el Capítulo Dos del Título II de la \legalcite{LeySS}.
-
-Un órgano técnico auxiliar del IESS, es la Dirección Actuarial, de Investigación y Estadística, cuya responsabilidad conforme el artículo 45 de la \legalcite{LeySS}, es la siguiente: 
-
-\begin{displayquote}
-\textbf{Art. 45.-} La Dirección Actuarial es órgano de asesoría técnica del IESS, subordinado al Consejo Directivo. Tiene a su cargo la preparación de los balances actuariales de cada uno de los regímenes de protección del Seguro General Obligatorio; la elaboración de los estudios técnicos y los informes periódicos sobre la situación de dichos regímenes y sus proyecciones, la evaluación de la cobertura poblacional, el perfil epidemiológico, los índices de siniestralidad de cada riesgo protegido, y del equilibrio financiero de los seguros sociales aplicados por el IESS; la preparación sistemática, periódica y oportuna de la memoria estadística del IESS, y los demás que ordene el Consejo Directivo $[\ldots]$. 
-\end{displayquote}
-
-Dentro del Plan Estratégico del IESS 2018-2028, consta como objetivo estratégico No. 1 “Incrementar la sostenibilidad de los fondos de los seguros especializados''; y, como estrategia para cumplir dicho objetivo, la de mejorar la gestión institucional en función a los estudios actuariales para procurar la sostenibilidad financiera.
+¿Por qué escribir un paquete? Una razón eficiente es que el usuario tiene un código que desea compartir con otros. Al agrupar su código en un paquete, es fácil que otras personas lo usen porque, al igual que nosotros, ya saben cómo usar los paquetes. Si su código está en un paquete, cualquier usuario de R puede descargarlo, instalarlo y aprender a usarlo fácilmente.
 
 %---------------------------------------------------------------------------------------------------
-\section{Objeto del estudio}
+\section{Objeto del Manual}
 \label{chap_Intro:objeto}
 
-El objeto de la presente Valuación Actuarial, con fecha de corte al 31 de diciembre de 2020, con un horizonte de 40 años (Período de valuación 2021 – 2060), es determinar la tasa de aportación que garantice al corto y largo plazo la prestación de repatriación de cadáveres de los afiliados residentes en el exterior.
-
-%---------------------------------------------------------------------------------------------------
-\section{Características del seguro}
-\label{chap_Intro:Características}
-
-La \legalcite{ConsEcu:2008} establece que el sistema de seguridad social, es público y universal, debe atender las necesidades contingentes de la población, protección que se hace efectiva a través del seguro universal obligatorio y de sus regímenes especiales. 
-
-El sistema debe guiarse por los principios del sistema nacional de inclusión y equidad social; y, por los de obligatoriedad, suficiencia, integración, solidaridad y subsidiaridad; y, funcionará con base en criterios de sostenibilidad, eficiencia, celeridad y transparencia. 
-
-El IESS tiene la misión de proteger a la población afiliada al Seguro Universal Obligatorio contra las contingencias de enfermedad, maternidad, paternidad, riesgos del trabajo, cesantía, desempleo, vejez, invalidez, discapacidad, muerte y aquellas que defina la ley. 
-
-La \legalcite{LeySS} en sus artículos 16, 17 y 18 establecen que el IESS, es una entidad pública descentralizada, creada por la Constitución, con autonomía normativa, técnica, administrativa, financiera y presupuestaria, dotada de personería jurídica y patrimonio propio, sujeta a las normas del derecho público, que tiene por objeto indispensable la prestación del Seguro General Obligatorio a sus afiliados en todo el territorio nacional. 
-
-
-En cuanto al financiamiento, el artículo 371 de la \legalcite{ConsEcu:2008} establece que las prestaciones de la seguridad social se financian con el aporte de las personas aseguradas en relación de dependencia y de sus empleadoras o empleadores; con los aportes de las personas independientes aseguradas; con los aportes voluntarios de las ecuatorianas y ecuatorianos domiciliados en el exterior; y, con los aportes y contribuciones del Estado, mismos que deben constar cada año en el Presupuesto General del Estado y ser transferidos de forma oportuna. 
-
-El artículo 49 de la \legalcite{LeySS} señala que los fondos de las aportaciones acumuladas por los asegurados para las distintas prestaciones del seguro universal obligatorio y voluntario se mantendrán en forma separada y no se utilizarán en prestaciones diferentes de aquellas para las que fueron creados.
-
-Se determina además que los fondos y reservas de los seguros de invalidez, vejez y muerte, riesgos del trabajo y cesantía, así como los del Seguro Social Campesino, se administrarán y mantendrán separadamente del patrimonio del Instituto Ecuatoriano de Seguridad Social, y no podrán ser dispuestos ni inmovilizados para otros fines que no sean los expresamente determinado en esta Ley. 
-
-El inciso segundo del artículo 372 de la \legalcite{ConsEcu:2008}, señala que los fondos previsionales públicos y sus inversiones se canalizan a través del BIESS, institución financiera propiedad del IESS, cuya gestión está sujeta a los principios de seguridad, solvencia, eficiencia, rentabilidad y al control de los órganos competentes. 
-
-El BIESS fue creado mediante la \legalcite{LeyBiess}, en su artículo 4 se establece las operaciones de banca de inversión que podrá realizar. 
-
-\begin{displayquote}
-\textbf{Art. 4.- Operaciones.-} Para el cumplimiento de su objeto, el Banco podrá realizar operaciones de banca de inversión y las determinadas en la presente Ley, de conformidad con lo dispuesto en la reglamentación emitida para el efecto. 
-\begin{enumerate}[label=\textbf{4.\arabic*.}]
-\item Podrá efectuar las siguientes operaciones de banca de inversión: 
-\begin{enumerate}[label=\textbf{4.1.\arabic*.}]
-\item Inversiones a través de los instrumentos que ofrece el mercado de valores para el financiamiento a largo plazo de proyectos públicos y privados, productivos y de infraestructura que generen rentabilidad financiera, valor agregado y nuevas fuentes de empleo, para impulsar el desarrollo socio económico del país; 
-\item Inversiones en el mercado de valores en títulos de renta fija o variable a través del mercado primario y secundario; y, 
-\item Estructurar, impulsar y promover proyectos de inversión.
-\end{enumerate}
-\item Podrá prestar los siguientes servicios financieros: 
-\begin{enumerate}[label=\textbf{4.2.\arabic*.}]
-\item Conceder créditos hipotecarios, prendarios y quirografarios y otros servicios financieros a favor de los afiliados y jubilados del IESS, mediante operaciones directas o a través del sistema financiero nacional; y,
-\item Operaciones de redescuento de cartera hipotecaria de instituciones financieras $[\ldots]$.
-\end{enumerate}
-\end{enumerate}
-\end{displayquote}
-
-%---------------------------------------------------------------------------------------------------
-\section{Breve descripción del programa}
-\label{chap_Intro:programa}
-
-La prestación a cubrir es el Auxilio de funerales.
-
-%---------------------------------------------------------------------------------------------------
-\section{Horizonte del estudio}
-
-El horizonte de la presente Valuación Actuarial es de 40 años, por lo que se analiza y proyecta la evolución demográfica a partir del 2021 hasta el 2060.
-
-%---------------------------------------------------------------------------------------------------
-\section{Estructura del informe}
-
-La estructura de la presente valuación, se encuentra conforme lo determinado en el Capítulo II\footnote{Capítulo II.- Requisitos Técnicos para la Elaboración, Presentación, Aprobación y Revisión de los Estudios Actuariales de las Entidades de Seguridad Social, agregado por la \legalcite{SB_810}, publicada en el Registro Oficial No. 213 de 29 de mayo de 2020.}  de la \legalcite{SB_810}.
+El objetivo principal de este manual es darles a conocer de manera sencilla y rápida cómo desarrollar paquetes en RStudio, para que pueda escribir los suyos propios, no solo usar los de otras personas.
 

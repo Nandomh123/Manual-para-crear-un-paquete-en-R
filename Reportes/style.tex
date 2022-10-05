@@ -2,7 +2,7 @@
 \usepackage{tocbibind}
 \usepackage{nextpage}
 \usepackage{ragged2e}
-\usepackage[spanish,es-tabla]{babel}            
+\usepackage[spanish,es-tabla]{babel}
 \usepackage[utf8]{inputenc}
 %\usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc} % Libertine
@@ -14,11 +14,12 @@
 
 % enumerados en listas
 \usepackage[shortlabels]{enumitem}
-\usepackage{pdflscape}	
-\usepackage{afterpage}	
+\usepackage{pdflscape}
+\usepackage{afterpage}
 \usepackage{dirtree}
 \usepackage{graphicx}
 \usepackage[top=2cm, bottom=-3cm, left=3cm, right=2cm, includeheadfoot]{geometry}
+\usepackage{pdflscape}
 % \usepackage{geometry}
 % \geometry{top=2cm, bottom= 3.5cm, left=3cm, right=2cm,footskip=1.7cm, includeheadfoot}
 % \usepackage[usegeometry]{typearea}
@@ -31,36 +32,80 @@
 %   % \newgeometry{% geometry settings for landscap
 %    % top=2cm, bottom=3cm, left=3cm, right=2cm, includeheadfoot}%
 %
-%  
+%
 % }
-% 
+%
 % \newcommand{\girarpagina}{%
 %   \clearpage
 %   \KOMAoptions{paper=landscape,DIV=current}%switch to landscape
 %   \newgeometry{% geometry settings for landscap
 %     top=0.5cm, bottom=0.5cm, left=0.5cm, right=0.5cm,headheight=1.5cm , includeheadfoot
 %   }%
-%  
-% 
+%
+%
 % }
-% 
-% 
+%
+%
 
 \usepackage{dsfont}
 \usepackage{mathtools}
 \usepackage{mathrsfs}
 \usepackage[none]{hyphenat}
+\usepackage{lscape}
+
+% codigo en R
+\usepackage{color}
+\usepackage{listings}
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+\usepackage{listings}
+\lstset{ frame=Ltb,
+framerule=0pt,
+aboveskip=0.5cm,
+framextopmargin=3pt,
+framexbottommargin=3pt,
+framexleftmargin=0.4cm,
+framesep=0pt,
+rulesep=.4pt,
+backgroundcolor=\color{gray97},
+rulesepcolor=\color{black},
+%
+stringstyle=\ttfamily,
+showstringspaces = false,
+basicstyle=\small\ttfamily,
+commentstyle=\color{gray45},
+keywordstyle=\bfseries,
+%
+numbers=left,
+numbersep=15pt,
+numberstyle=\tiny,
+numberfirstline = false,
+breaklines=true,
+}
+
+% minimizar fragmentado de listados
+\lstnewenvironment{listing}[1][]
+{\lstset{#1}\pagebreak[0]}{\pagebreak[0]}
+
+\lstdefinestyle{consola}
+{basicstyle=\scriptsize\bf\ttfamily,
+backgroundcolor=\color{gray75},
+}
+
+
+
 
 % AMS Math + AMS symbols
-\usepackage{amsmath}                   
-\usepackage{amssymb}        
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{amsthm}
 % \usepackage{amsfonts}
 \usepackage[cal=dutchcal]{mathalfa}
 \usepackage[figuresright]{rotating}
 \usepackage[]{pdfpages}
 
-% Sideways of figures & tables 
+% Sideways of figures & tables
 \usepackage{setspace}
 \usepackage{booktabs}
 
@@ -83,7 +128,7 @@
 \usepackage{gensymb}
 
 % Escribir simbolos especiales Ej: o/oo
-\usepackage{enumitem} 
+\usepackage{enumitem}
 
 % Para personalizar los labels de items en listas
 \usepackage{multirow}
@@ -110,7 +155,7 @@ color=blue!90
 \usepackage{datetime}
 
 % Hypervínculos en PDF
-\usepackage[colorlinks = true, linkcolor = iess_blue, urlcolor = iess_blue, citecolor = iess_green, 
+\usepackage[colorlinks = true, linkcolor = iess_blue, urlcolor = iess_blue, citecolor = iess_green,
   linktoc = page]{hyperref}
 \usepackage{memhfixc}
 
@@ -118,7 +163,7 @@ color=blue!90
 \usepackage{pdfpages}
 
 % Bibliografía
-\usepackage[style=numeric-verb, bibstyle=numeric, citestyle=numeric, backend=biber, natbib=true, 
+\usepackage[style=numeric-verb, bibstyle=numeric, citestyle=numeric, backend=biber, natbib=true,
   maxnames=10, maxcitenames=2]{biblatex}
 
 \usepackage{tikz}
@@ -127,7 +172,6 @@ color=blue!90
 % Tablas grandes
 \usepackage{longtable}
 \usepackage{ctable}
-\usepackage{color}
 \usepackage{colortbl}
 \usepackage{titleps}
 
@@ -168,7 +212,7 @@ color=blue!90
   \textit{\printfield{shorttitle}}\,
   [\printtext[bibhyperref]{\printfield{labelnumber}}]
 }
-  
+
 \DeclareCiteCommand{\estcite}
   {\usebibmacro{prenote}}
   {\usebibmacro{citeindex}
@@ -189,6 +233,7 @@ color=blue!90
 \definecolor{iess_green3}{RGB}{ 0, 113, 53 }
 % Page style ---------------------------------------------------------------------------------------
 \setlength{\headsep}{1.5cm}
+
 
 \newpagestyle{repstyle}{
 \setfoot[\thepage][][]{}{}{\thepage}
@@ -244,7 +289,7 @@ color=blue!90
 {\normalfont}
 {}
 {0cm}
-{\filright\fontsize{22}{22}\bfseries\selectfont{\textcolor{iess_green}{\thechapter\hspace{4mm}#1}}} 
+{\filright\fontsize{22}{22}\bfseries\selectfont{\textcolor{iess_green}{\thechapter\hspace{4mm}#1}}}
 \titlespacing{\chapter}{0.0cm}{0.0\baselineskip}{3.0\baselineskip}
 
 \titleformat{name = \chapter, numberless}
@@ -363,7 +408,7 @@ color=blue!90
 \setlength{\belowdisplayskip}{5pt}
 
 % New environements --------------------------------------------------------------------------------
-\theoremstyle{plain} 
+\theoremstyle{plain}
 \newtheorem{ejemplo}{Ejemplo}
 \newtheorem{observacion}{Observación}[section]
 \newtheorem{comentario}{Comentario}[section]

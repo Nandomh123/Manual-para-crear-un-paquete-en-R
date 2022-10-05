@@ -46,7 +46,9 @@ REP_file_latex_org <- c( paste( parametros$work_dir, 'Reportes/bibliografia_libr
                          paste( parametros$work_dir, 'Reportes/style.tex', sep = '' ),
                          paste( parametros$work_dir, 'Reportes/ciencias.png', sep = '' ),
                          paste( parametros$work_dir, 'Reportes/EPN.png', sep = ''),
-                         paste( parametros$work_dir, 'Reportes/logo_iess_azul.png', sep = '')
+                         paste( parametros$work_dir, 'Reportes/logo_iess_azul.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/PaqueteR.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/NuevoPaqueteR.png', sep = '')
                          )
 
 REP_file_latex_des <- c( paste( REP_rep_dir, 'bibliografia_libros.bib', sep = '' ),
@@ -55,7 +57,9 @@ REP_file_latex_des <- c( paste( REP_rep_dir, 'bibliografia_libros.bib', sep = ''
                          paste( REP_rep_dir, 'style.tex', sep = '' ),
                          paste( REP_rep_dir, 'graficos/ciencias.png', sep = '' ),
                          paste( REP_rep_dir, 'graficos/EPN.png', sep = ''),
-                         paste( REP_rep_dir, 'graficos/logo_iess_azul.png', sep = '')
+                         paste( REP_rep_dir, 'graficos/logo_iess_azul.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/PaqueteR.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/NuevoPaqueteR.png', sep = '')
                          )
 
 REP_file_latex_clean <- c( paste( REP_rep_dir, 'bibliografia_libros.bib', sep = '' ),
