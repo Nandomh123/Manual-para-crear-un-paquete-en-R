@@ -1,0 +1,103 @@
+%---------------------------------------------------------------------------------------------------
+% template document
+\documentclass[12pt, a4paper, twoside, openright]{book}
+\input{\Sexpr{REP_style}}
+
+%---------------------------------------------------------------------------------------------------
+\SetWatermarkText{\Sexpr{REP_watermark}}
+\SetWatermarkScale{0.4}
+%\SetWatermarkText{}
+%\SetWatermarkScale{0.40}
+%\SetWatermarkColor[cmyk]{0, 0, 0, 0.15}
+
+
+% \newcommand\BGfrom[1]{%
+% \AddEverypageHook{%
+%   \ifnum\value{page}>\numexpr#1-1\relax
+%     \backgroundsetup{
+% angle=-20,
+% %position={0.68\textwidth,-.68\textheight},%
+% position={10.8cm,-16.9cm},%
+% contents={\includegraphics[scale=0.07]{graficos/sumilla_actuario.png}}
+%     }%
+%   \fi
+%   \BgMaterial%
+%   }%
+% }
+% \BGfrom{3}
+
+
+% Bibliografía -------------------------------------------------------------------------------------
+\addbibresource{\Sexpr{REP_bib_lib}}
+\addbibresource{\Sexpr{REP_bib_art}}
+\addbibresource{\Sexpr{REP_bib_ley}}
+
+%---------------------------------------------------------------------------------------------------
+% Inicio del documento
+\begin{document}
+
+%---------------------------------------------------------------------------------------------------
+\frontmatter
+% Contenidos
+<<cap01, child='01_cobertura.Rnw'>>=
+@
+
+<<cap02, child='02_contenido.Rnw'>>=
+@
+
+%---------------------------------------------------------------------------------------------------
+% Cuerpo del estudio
+\mainmatter
+
+<<cap03, child='03_resumen_ejecutivo.Rnw'>>=
+ @
+
+<<cap04, child='04_introduccion.Rnw'>>=
+@
+
+<<cap05, child='05_reglamentacion.Rnw'>>=
+@
+
+<<cap06, child='06_analisis_contexto.Rnw'>>=
+@
+
+<<cap08, child='08_demografia.Rnw'>>=
+@
+
+<<cap10, child='10_hipotesis.Rnw'>>=
+@
+
+%<<cap11, child='11_riesgos.Rnw'>>=
+% @
+
+<<cap12, child='12_situacion.Rnw'>>=
+@
+
+% <<cap13, child='13_sensibilidad.Rnw'>>=
+% @
+
+<<cap14, child='14_conclusiones.Rnw'>>=
+@
+
+<<cap15, child='15_opinion_actuarial.Rnw'>>=
+@
+
+% %---------------------------------------------------------------------------------------------------
+% % Apéndices
+% \appendix
+%
+
+
+%---------------------------------------------------------------------------------------------------
+%Acrónimos
+ <<cap21, child='21_anx_acronimos.Rnw'>>=
+ @
+
+%---------------------------------------------------------------------------------------------------
+\backmatter
+\pagestyle{repheadstyle}
+% Bibliografía
+\chapter{Bibliografía}
+\printbibliography[heading = none]
+
+\end{document}

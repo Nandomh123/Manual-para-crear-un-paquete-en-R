@@ -1,0 +1,61 @@
+%---------------------------------------------------------------------------------------------------
+\chapter{Opinión actuarial}
+\label{chp_opinion}
+
+El estudio se ha realizado bajo técnicas actuariales, observando las resoluciones
+de la Superintendencia de Bancos, respecto de los estudios actuariales, así mismo, observando 
+normas internacionales, para la elaboración de estudios actuariales, y los principios actuariales 
+generalmente aceptados como son la objetividad, rigor científico y transparencia.
+
+
+%---------------------------------------------------------------------------------------------------
+\section{Calidad y suficiencia de los datos}
+\label{chp_opinion:calidad}
+
+El estudio se realizó con la información que mantiene la institución. Las bases de datos de afiliados y
+pensionistas del Seguro de IVM, fueron sometidas a rigurosas medidas estadísticas de control de calidad 
+e integridad, luego de lo cual presentaron un nivel de confiabilidad y coherencia técnica suficientes
+para realizar el estudio actuarial.
+
+
+%---------------------------------------------------------------------------------------------------
+\section{Razonabilidad de las hipótesis}
+\label{chp_opinion:hipotesis}
+
+Las hipótesis que intervienen en el estudio fueron recopiladas tanto del comportamiento histórico 
+relevante de la institución como de los fenómenos económicos publicados por los organismos estatales 
+especializados, y por la normativa interna.
+
+Los supuestos que se utilizaron en el estudio pretenden acercarse a la realidad demográfica, económica
+y financiera del país, y en particular de los partícipes de este fondo.
+
+%---------------------------------------------------------------------------------------------------
+\subsection*{Fecha de valuación}
+
+\begin{itemize}
+  \item La información de base para este estudio fue cortada al 2020-12-31. 
+  \item El período de proyección de este estudio es de 40 años, desde el 2021 hasta el 2060.
+\end{itemize}
+
+%---------------------------------------------------------------------------------------------------
+\section*{Responsabilidad actuarial}
+\label{chp_opinion:actuario}
+Del presente estudio es responsabilidad del Director Actuarial, de Investigación y Estadística.
+
+\section{Firma de responsabilidad}
+Quito, 26 de julio de 2022 \\
+
+\vspace{2cm}
+Atentamente,
+\vspace{1cm}
+%--------------------------------------------------------------------------------------------------
+% \begin{figure}[H]
+% 	\centering
+% 		\includegraphics[scale=0.28]{graficos/firma_actuario.png}
+% 	\end{figure}
+% \vspace{-2cm}
+\begin{center}
+\textbf{Ramiro Vega Suárez, Lic.} \\
+Director Actuarial, de Investigación y Estadística \\
+Instituto Ecuatoriano de Seguridad Social
+\end{center}

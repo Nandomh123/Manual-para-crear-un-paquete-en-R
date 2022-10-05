@@ -1,0 +1,11 @@
+%---------------------------------------------------------------------------------------------------
+\chapter{Análisis del contexto económico}
+\label{chp_contexto}
+% %------------------------------------------------------------------------------
+\section{Análisis de las tasas históricas relevantes para el estudio}
+%
+% %----------------------------------------------------------------------------------
+\subsection{Evolución de la inflación en el Ecuador}
+
+Una de las hipótesis importantes a considerar en los modelos matemáticos – actuariales es la inflación, que mide el aumento generalizado y sostenido de los precios de bienes y servicios en un país, cuya medición consiste en el cálculo de los incrementos que presenta el Índice de Precios al Consumidor (IPC). Es por ello que se pone especial atención en dicho fenómeno económico en razón de que este afecta tanto las tasas de interés como al incremento salarial, que es la base del crecimiento de las reservas y del crecimiento salarial en el tiempo, referente tanto de aportes como de beneficios.
+

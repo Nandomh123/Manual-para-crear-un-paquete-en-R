@@ -1,0 +1,63 @@
+\pagestyle{empty}
+\newgeometry{top=3cm, bottom=1cm, left=4cm, right=3cm}
+\setcounter{page}{300}
+\pagenumbering{roman}
+\begin{figure}[H]
+\includegraphics[width=0.12\textwidth]{graficos/EPN.png}
+\end{figure}
+\vspace{-2.1cm}
+\hspace{4.1cm}{\fontsize{20}{20}{\bfseries{\selectfont{\textcolor{iess_green}{
+Escuela Politécnica Nacional}}}}}
+\hspace{4.1cm}{\fontsize{16}{20}{\bfseries{\selectfont{\textcolor{iess_blue}{
+\hspace{4.1cm}Facultad de Ciencias}}}}}
+
+\vspace{3cm}
+\begin{flushleft}
+\hspace*{-4cm}{\color{black}{\rule{10cm}{1.5pt}}}
+\end{flushleft}
+
+\vspace{0.5cm}
+
+\begin{flushleft}
+{\fontsize{24}{28}{\bfseries{\selectfont{\textcolor{iess_blue}{\Sexpr{REP_tit}}}}}}\\
+\vspace{1cm}
+{\fontsize{15}{18}{\bfseries{\selectfont{\textcolor{iess_blue}{Fecha de valuación   : \Sexpr{REP_fec_fin}}}}}}\\
+
+\end{flushleft}
+
+\vspace{0.5cm}
+\hspace*{7cm}{\color{black}{\rule{11cm}{1.5pt}}}
+
+% Se agrega el tipo de media utilizado -------------------------------------------------------------
+% \vspace{1cm}
+% {\fontsize{20}{24}{\bfseries{\selectfont{\textcolor{iess_green}{Pensiones: Modalidad Media Aritmética}}}}}
+% \vspace{2cm}
+%---------------------------------------------------------------------------------------------------
+ \vspace{5cm}
+
+\vspace{1.3cm}
+\hspace*{7cm}{\fontsize{15}{18}{\bfseries{\selectfont{\textcolor{iess_blue}{Quito - Ecuador}
+%\Sexpr{REP_fec_val}
+%\Sexpr{REP_fec_ele}
+}}}}
+\normalfont
+\clearpage
+
+% Formato de la página -----------------------------------------------------------------------------
+\newgeometry{top=3cm, bottom=2cm, left=3cm, right=2cm}
+\afterpage{\restoregeometry}
+
+\pagestyle{empty}
+\pagecolor{white}
+
+\vspace*{17cm}
+
+{\scriptsize
+Instituto Ecuatoriano de Seguridad Social, IESS\\
+Título: \Sexpr{REP_tit}\\
+Departamento: Dirección Actuarial, de Investigación y Estadística\\
+Dirección: Avenida 10 Agosto y Bogotá, Quito-Ecuador\\
+Versión: \Sexpr{REP_version}
+}
+
+%\clearpage

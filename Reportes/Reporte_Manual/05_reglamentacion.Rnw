@@ -1,0 +1,15 @@
+%---------------------------------------------------------------------------------------------------
+\chapter{Reglamentación del fondo o seguro}
+\label{chp_reglamentacion}
+%--------------------------------------------------------------------------------------------------
+
+\section {Breve descripción de los reglamentos y leyes aplicables}
+
+\subsection{Normativa y administración}
+
+Dentro del Libro II de la Ley de Seguridad Social se encuentra el sistema de pensiones, el cual contempla un régimen mixto, que debía recibir las aportaciones y contribuciones obligatorias y otorgaba las prestaciones, en forma combinada, una parte por el régimen de jubilación por solidaridad intergeneracional y otra por el régimen de jubilación por ahorro voluntario. Este régimen no fue implementado, por cuanto el Tribunal Constitucional a través de la Resolución Nro. 052-2001-RA, declaró inconstitucionales por el fondo los artículos 167, 176, 204, entre otros de la Ley de Seguridad Social. En el mismo Libro, en el Título VI se determina un régimen de transición.
+
+La afiliación y la recaudación de las aportaciones y de la contribución financiera del Estado se encuentran a cargo del IESS; y, corresponde a la Administradora del Seguro General de Pensiones, conforme el artículo 168 de la Ley de Seguridad Social, el aseguramiento, calificación del derecho a las prestaciones y la entrega de las prestaciones de invalidez, vejez y muerte, así como la aplicación del régimen de jubilación por solidaridad intergeneracional en los términos que establece  la Ley.
+
+%---------------------------------------------------------------------------------------------------
+
