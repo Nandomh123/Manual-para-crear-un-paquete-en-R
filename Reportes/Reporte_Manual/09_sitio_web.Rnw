@@ -1,0 +1,9 @@
+%---------------------------------------------------------------------------------------------------
+\chapter[Sitio web de un nuevo paquete R]{Sitio web de un nuevo paquete R}
+\label{sitio_web}
+%--------------------------------------------------------------------------------------------------
+
+En esta sección se va explicar de manera detallada como se crea un sitio web de un paquete de R Studio, también se va a realizar una aplicación práctica del mismo paquete que fue creado anteriormente para poder ver su funcionamiento.
+
+\section{Supuestos demográficos}
+

@@ -44,7 +44,7 @@ Escuela Politécnica Nacional}}}}}
 \clearpage
 
 % Formato de la página -----------------------------------------------------------------------------
-\newgeometry{top=3cm, bottom=2cm, left=3cm, right=2cm}
+\newgeometry{top=3cm, bottom=3cm, left=3cm, right=3cm}
 \afterpage{\restoregeometry}
 
 \pagestyle{empty}

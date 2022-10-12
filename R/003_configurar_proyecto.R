@@ -24,7 +24,7 @@ parametros$opsys <- Sys.info()[[1]]
 parametros$hostname <- Sys.info()[[4]]
 
 #Servidor de datos
-parametros$data_server <- 'C:/Users/Usuario01/Documents/Pasantes/Jonathan_Pallasco/Manual-para-crear-un-paquete-en-R/Manual/'
+parametros$data_server <- 'C:/Users/Hp/Desktop/Manual-para-crear-un-paquete-en-R/Manual/'
 
 # local
 #parametros$data_server <- paste0( getwd(), '/' )

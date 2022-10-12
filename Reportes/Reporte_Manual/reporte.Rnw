@@ -50,11 +50,14 @@
 <<cap03, child='04_introduccion.Rnw'>>=
 @
 
-<<cap04, child='06_analisis_contexto.Rnw'>>=
+<<cap04, child='06_paquete_nuevo.Rnw'>>=
 @
 
-% <<cap05, child='05_reglamentacion.Rnw'>>=
-% @
+<<cap05, child='08_documentacion_funciones_datas.Rnw'>>=
+@
+
+<<cap06, child='09_sitio_web.Rnw'>>=
+@
 
 % <<cap06, child='06_analisis_contexto.Rnw'>>=
 % @
@@ -88,8 +91,8 @@
 
 %---------------------------------------------------------------------------------------------------
 %Acrónimos
- <<cap21, child='21_anx_acronimos.Rnw'>>=
- @
+% <<cap21, child='21_anx_acronimos.Rnw'>>=
+% @
 
 %---------------------------------------------------------------------------------------------------
 \backmatter

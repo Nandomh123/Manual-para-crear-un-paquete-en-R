@@ -1,0 +1,563 @@
+%---------------------------------------------------------------------------------------------------
+\chapter{Creación de un paquete R en RStudio}
+\label{chp_contexto}
+% %------------------------------------------------------------------------------
+
+Este capítulo se va a explicar de manera muy detallada como se crea y además se explica las componentes claves que debe contener un nuevo paquete creado en software estadístico R.
+
+Para mantener el ritmo, aprovechamos las comodidades modernas del paquete devtools y el IDE de RStudio.
+
+\section{Devtools y dependencias}
+
+Puede iniciar su nuevo paquete desde cualquier sesión de R activa. No necesita preocuparse por si está en un proyecto nuevo o existente o no. Las funciones que usamos se encargan de esto.\vspace{.1cm}
+
+Cargue el paquete devtools como se muestra en el recuadro. Este paquetes la cara pública de un conjunto de paquetes que admiten varios aspectos del desarrollo de paquetes. El más obvio de estos es el paquete usethis, que verá que también se está cargando. \vspace{.1cm}
+
+\begin{lstlisting}{R}
+# Instalamos el paquete devtools
+install.packages( 'devtools' )
+library(devtolls)
+\end{lstlisting}
+
+Por otro lado, vamos a usar varias funciones de {\bf devtools}, para construir un paquete desde cero, manteniendo la estructura de los paquetes que se encuentran publicados en CRAN.
+
+\section{Inicialización de un nuevo paquete R}
+
+Para empezar la creación de un nuevo paquete en R, debemos llamar a la función {\bf create\_package()} del paquete {\bf usethis}, para inicializar un nuevo paquete en un directorio de su computadora. Esta función crea  automáticamente ese directorio.
+
+Ahora empezamos creando un nuevo proyecto en nuestra consola de R Studio, llamemolo al proyecto como {\bf PaqueteR}, y se obtiene algo similar a la figura \ref{fig:PaqueteR}. Este proyecto posee un único archivo {\bf PaqueteR.Rproj} que convierte a este directorio en un proyecto de RStudio.
+
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Creación del proyecto PaqueteR en R Studio}
+\label{fig:PaqueteR}
+\includegraphics[scale=.62]{graficos/PaqueteR.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+
+Luego procedemos a ejecutar la función {\bf create\_packages()} en la consola del nuevo proyecto para iniciar un nuevo paquete. Cabe recalcar que en esta función es neseario especificar adecadamente la dirección junto con el nombre que le vayamos a dar al paquete; es decir, se ejecuta la siguiente linea de código.
+
+\begin{lstlisting}{R}
+# Creamos un nuevo paquete
+usethis::create_package( 'C:/Users/Usuario01/Documents/Pasantes/
+                         Jonathan_Pallasco/NuevoPaqueteR' )
+\end{lstlisting}
+
+Ahora se nos habre una nueva sección de R, en la cual ya se ha creado nuestro proyecto llamado {\bf NuevoPaqueteR}, como se muestra en la figura \ref{fig:NuevoPaqueteR}. Además, se puede observar que en este nuevo proyecto se construyó una lista 5 nuevos archivos los cuales se describen a continuación:
+
+\begin{enumerate}
+\item {\bf .Rbuildignore} : Enumera los archivos que debemos tener pero que no deben incluirse al compilar el paquete R desde el código fuente.
+    \item {\bf .gitignore}:  Anticipa el uso de Git e ignora algunos archivos estándar detrás de escena creados por R y RStudio. Incluso si no planea usar Git, esto es inofensivo.
+    \item {\bf DESCRIPTION}: Proporciona metadatos sobre su paquete.
+    \item {\bf NAMESPACE}: Declara las funciones que su paquete exporta para uso externo y las funciones externas que su paquete importa de otros paquetes.
+    \item {\bf Directorio R}: Es el extremo comercial de su paquete.
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Creación del nuevo PaqueteR en R Studio}
+\label{fig:NuevoPaqueteR}
+\includegraphics[scale=.62]{graficos/NuevoPaqueteR.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+
+{\bf Nota:} Probablemente necesitemos volver a llamar {\bf library(devtools)}, porque {\bf create\_package()}, utilizo una nueva sección de R en el nuevo paquete.
+
+\section{Conversión del paquete en un repositorio Git}
+
+El directorio {\bf NuevoPaqueteR} es un paquete fuente R y un proyecto RStudio. Ahora lo convertimos también en un repositorio Git. Para ello vamos a usar la función {\bf use\_git()}. En esta función, no se especifican los parámetros de entrada.
+
+\begin{lstlisting}{R}
+# Creamos el repositorio git
+usethis::use_git()
+\end{lstlisting}
+
+
+{\bf Nota: }La función {\bf use\_git()} funciona en cualquier proyecto, independientemente de si es un paquete R.
+
+
+Nos preguntamos: ¿Qué hay de nuevo? Solo la creación de un directorio .git, que está oculto en la mayoría de los contextos, incluido el explorador de archivos de RStudio. Su existencia es evidencia de que, de hecho, hemos inicializado un repositorio de Git aquí.
+
+Si está utilizando RStudio, probablemente solicitó permiso para reiniciarse en este proyecto, lo cual debe hacer. Puede hacerlo manualmente saliendo y luego reiniciando RStudio haciendo doble clic en NuevoPaqueteR.Rproj. Ahora, además de la compatibilidad con el desarrollo de paquetes, tiene acceso a un cliente Git básico en la pestaña Git del panel Entorno/Historial/ Compilación.
+
+Ahora hacemos clic en Historial (el ícono del reloj en el panel de Git) y, si dio su consentimiento, verá una confirmación inicial realizada a través de {\bf use\_git()}, como se muestra en la figura \ref{fig:git}.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Creación del repositorio Git}
+\label{fig:git}
+\includegraphics[scale=.62]{graficos/git.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+\section{Funciones y bases de datos del paquete R}
+
+Una vez construido nuestro paquete, nos preguntamos ¿Como se crean las funciones y las bases de datosque estan en nuestro paquete?
+
+Debemos tener en cuenta que las funciones de nuestro paquetes deben ser archivos {\bf .R} y las bases de datos deben de ser de tipo {\bf .rda}. La poblacion que a indagado en los paquetes lanzados al CRAN, deben tener claro que en un paquete no se debe mesclar las fucniones y las bases de datos, es por ello que las funciones deben ser almacenadas en repositorio {\bf R} y las bases de datos deben ser almacenadas en el repositorio {\bf Data}. Como vimos anteriormente el repositorio {\bf R} se crea automáticamente al momento de iniciar nuestro paquete. Ahora el repositorio {\bf Data} no se encuentra en nuestro paquete. Sin embargo, existen funciones del paquete {\bf devtolls} que realiza este trabajo de manera automática, más adelante se vera a detalle su funcionamiento.
+
+\subsection{Creación de Funciones}
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Creación de funciones .R en el directorio R}
+\label{fig:funciones}
+\includegraphics[scale=.62]{graficos/funciones.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+Como se dijo anteriormente, toda función debe estar en un archivo .R {(\bf NombreFuncion.R)} que se almacena en el directorio {\bf R/} de nuestro paquete. Existe una función del paquete {\bf usethis} que nos crea funciónes automáticamente y la almacena directamente en el directorio {\bf R} de nuestro paquete. La función {\bf use\_r()} es la que se encarga de todo este proceso ya que ayuda a crea y/o abrir un script en el repositorio {\bf R}. En esta función el parámetro importante que se debe especificar es el nombre de la función, el mismo que se usa para renombrar al scrip creado.
+
+\begin{table}[H]
+\captionsetup{justification=centering}
+\begin{center}
+\caption{Código de las funciones del nuevo paquete R}
+\label{tab:funciones}
+{\fontsize{10}{12}\selectfont
+\begin{tabular}{p{5cm}p{9cm}}
+\toprule
+     {\bf Nombre de la función} & {\bf Código}\\
+\midrule
+ Suma.R & \begin{lstlisting}{R}
+# Funcion suma
+Suma <- function(a,b){
+  suma <- a + b
+  return(suma)
+}
+\end{lstlisting}\\
+Sumatoria.R &\begin{lstlisting}{R}
+# Funcion Sumatoria
+Sumatoria <- function(vector){
+  n <- length(vector)
+  sumatoria <- 0
+  for (i in 1:n){
+    sumatoria <- sumatoria + vector[i]
+  }
+  return(sumatoria)
+}
+\end{lstlisting}\\
+Media.R & \begin{lstlisting}{R}
+# Funcion Media
+Media <- function(vector){
+  n <- length(vector)
+  media <- Sumatoria(vector)/n
+  return(media)
+}
+\end{lstlisting}\\
+
+\bottomrule
+\end{tabular}
+}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{center}
+\end{table}
+
+
+Para la demostración, se va a crear 3 funciones simples, como se muestra a continuación:
+
+\begin{lstlisting}{R}
+# Creamos funciones
+usethis::use_r('Suma')
+usethis::use_r('Sumatoria')
+usethis::use_r('Media')
+\end{lstlisting}
+
+
+Es evidente que se crearon nuevos scrip en el directorio R de nuestro proyecto, como se muestra en la figura \ref{fig:funciones}.
+
+Ahora vamos a escrir el código dentro de cada una de las funciones, de tal manera que cumpla las siguientes especificaciones:
+
+\begin{enumerate}
+  \item {\bf Suma.R:} Calcula la suma de 2 números.
+  \item {\bf Sumatoria.R:} Calcula la sumatoria de $n$ números.
+  \item {\bf Media.R:} Calcula la media de un vector de n números.
+\end{enumerate}
+
+Notemos que en la tabla \ref{tab:funciones}, se puede observar los códigos utilizados para la creación de las funciones:
+
+Es evidente que los códigos son demasiado simples, más adelante veremos la documentación que deben tener las funciones de todos los paquetes lanzados en {\bf CRAN}.
+
+\subsubsection{Verificación del funcionamiento de las funciones creeadas en el paquete R}
+
+Una vez, creadas las funciones, debemos hacer la prueba de las mismas. ¿Cómo hacemos la prueba de manejo {\bf Suma()}, {\bf Sumatoria()} y {\bf Media()?} Si se tratara de un script R normal, podríamos usar RStudio para enviar la definición de la función a R Console y definir {\bf Suma()}, {\bf Sumatoria()} y {\bf Media()} en el entorno global. O tal vez llamaríamos {\bf source('R/Suma.R')}, {\bf source('R/Sumatoria.R')} o {\bf source('R/Media.R')}. Sin embargo, para el desarrollo de paquetes, devtools ofrece un enfoque más sólido.
+
+Llamar a la función {\bf load\_all()} es lo único que se debe hacer para poner a {\bf Suma()}, {\bf Sumatoria()} y {\bf Media()} para la experimentación como se muestra en el recuadro.
+
+\begin{lstlisting}{R}
+# Lamamos a las funciones creadas en el directorio R
+devtools::load_all('.')
+}
+\end{lstlisting}
+
+Simplemente debemos llamar a {\bf Suma()}, {\bf Sumatoria()} y {\bf Media()?} para ver cómo funciona. El llamado se lo realiza de la siguiente manera,
+
+\begin{lstlisting}{R}
+# Lamamos a las funciones creadas en el directorio R
+a <- 10
+b <- 21.31
+vector <- c(5, 2, 4, 5.3, 10.23, 15, 1.23)
+# Funcion Suma
+Suma(a,b)
+# Funcion Sumatoria
+Sumatoria(vector)
+# Funcion Media
+Media(vector)
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Prueba de las funciones creadas en el directorio R}
+\label{fig:pruebafunciones}
+\includegraphics[scale=.62]{graficos/pruebafunciones.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+En la figura \ref{fig:pruebafunciones}, se observa que se carga el paquete {\bf NuevoPaqueteR}, por ende se cargaron las funciones antes mensionadas. Además se observa en la sonsola que estan funcionando correctamente. Ahora verifiquemos de manera manueal que esta correcto el resultado, entonces se procede a efectuar todas las operaciones antes mensionadas, lo cual coinciden con el resultado de las funciones creadas
+
+\begin{align*}
+  &\mbox{Suma} = 10 + 21.31 = 31.31 \\\\
+  &\mbox{Sumatoria} = 5 + 2 + 4 + 5.3 + 10.23 + 15 + 1.23 = 42.76\\\\
+  &\mbox{Media} = \frac{5 + 2 + 4 + 5.3 + 10.23 + 15 + 1.23}{7} = 10.1085
+\end{align*}
+
+\begin{lstlisting}{R}
+# Verificar si las funciones existen en el entorno global
+exists("Suma", where = globalenv(), inherits = FALSE)
+exists("Sumatoria", where = globalenv(), inherits = FALSE)
+exists("Media", where = globalenv(), inherits = FALSE)
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Prueba de verificamos para la existencia de las funciones en el entorno global}
+\label{fig:existe}
+\includegraphics[scale=.62]{graficos/existe.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+Tenga en cuenta que {\bf load\_all()} ha hecho que las funciones esté disponible, aunque no existe en el entorno global, para ello verificamos si existen en el entorno global con la función {\bf exists()} como se muestra en el recuadro y además en la figura \ref{fig:existe}. Como se ve FALSE en las 3 funciones, entonces concluimos que las funciones no existen en el entorno global, por otro lado si fuese TRUE, entonces eso indica que todavía está usando un flujo de trabajo orientado a secuencias de comandos y obteniendo sus funciones.
+
+La {\bf load\_all()} simula el proceso de creación, instalación y conexión del paquete {\bf NuevoPaqueteR}. A medida que su paquete acumula más funciones, algunas exportadas, otras no, algunas de las cuales se llaman entre sí, algunas de las cuales llaman a funciones de los paquetes de los que depende, {\bf load\_all()} le brinda una idea mucho más precisa de cómo se está desarrollando el paquete que las funciones de conducción de prueba definidas en el entorno mundial. También {\bf load\_all()} permite una iteración mucho más rápida que construir, instalar y adjuntar el paquete.
+
+\subsubsection{Verificación del funcionamiento del paquete R}
+
+Tenemos evidencia empírica informal que {\bf Suma()}, {\bf Sumatoria()} y {\bf Media()} funcionan. Pero, ¿cómo podemos estar seguros de que todas las partes móviles del paquete {\bf NuevoPaqueteR} todavía funcionan? Verificar esto puede parecer una tontería, después de una adición tan pequeña, pero es bueno establecer el hábito de verificar esto con frecuencia.
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Prueba de verificación de funcionamiento del nuevo paquete R}
+\label{fig:check}
+\includegraphics[scale=.62]{graficos/check.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+Una forma conveniente de verificar esto es usando la función {\bf check()} sin salir de su sesión R. La sintaxis para ejecutar la función es la siguiente:
+
+\begin{lstlisting}{R}
+# Verificar que el paquete funciona
+devtools::check()
+\end{lstlisting}
+
+Tenga en cuenta que {\bf check()} produce una salida bastante voluminosa, optimizada para el consumo interactivo. Lo interceptamos en la figura \ref{fig:check} y solo revelamos un resumen. !Esto puedo tomar pocos minutos no se desespere!.
+
+Podemos ver que no existe errores en el paquete, lo cual es bueno para nosotros como programadores.
+
+
+
+\subsection{Creación de Bases de Datos}
+
+Suele ser útil incluir datos en un paquete. Si el objetivo principal de un paquete es distribuir funciones útiles, los conjuntos de datos de ejemplo facilitan la redacción de documentación excelente. Estos conjuntos de datos se pueden crear a mano para proporcionar casos de uso atractivos para las funciones del paquete.
+
+La ubicación más común para los datos del paquete es el repositorio {\bf data/}. Cada archivo que se encuentre en este directorio debe ser de tipo {\bf .rda}. La forma más fácil de lograr esto es utilizando la función {\bf  use\_data()}, en esta función es necesario especificar el nombre de la data que desea guardar, para la demostración vamos a crear una base de datos llamado familia con 3 variables:
+
+\begin{enumerate}
+  \item {\bf Id:} Id de la familia.
+  \item {\bf Personas:} Cantidad de personas que conforman una familia.
+  \item {\bf Tipo:} Tipo de Familia según la cantidad de personas que la conforman (Familia Normal, Familia Media, Familia Numerosa)
+\end{enumerate}
+
+Esta base de datos es inventada, pues posee datos aleatorios de los numeros de personas en cada familia. Además el codigo que se presenta, depende del programador, en esta ocación se usa una data table, como se muestra en el siguiente código:
+
+\begin{lstlisting}{R}
+# Creacion de la base de datos Familias
+install.packages("data.table")
+library(data.table)
+Familia <- as.data.table( c(1:200) )
+setnames(Familia, c('Id'))
+Familia <- Familia[ , Personas := sample(1:10, size = 200,
+                                         replace = TRUE) ]
+Familia[ Personas <= 4, Tipo := 'Familia Normal' ]
+Familia[ Personas >= 4 & Personas <= 6 ,
+         Tipo := 'Familia Media' ]
+Familia[ Personas >= 7 & , Tipo := 'Familia Numerosa' ]
+\end{lstlisting}
+
+A continuación en la tabla \ref{tab:Familias}, se encuentra los primeros datos de la base creada.
+
+\begin{table}[H]
+\captionsetup{justification=centering}
+\begin{center}
+\caption{Primeros datos de la base creada de las Familias.}
+\label{tab:Familias}
+{\fontsize{10}{12}\selectfont
+\begin{tabular}{ccr}
+\toprule
+     {\bf ID Familia} & {\bf Personas} & {\bf Tipo}\\
+\midrule
+\input{tablas/Familia_muestra.tex}
+\bottomrule
+\end{tabular}
+}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{center}
+\end{table}
+
+Ahora simplemente debemos guardarlo en el directorio {\bf data} usando la función {\bf use\_data()}, como se muestra a continuación:
+
+\begin{lstlisting}{R}
+# Creacion de la base de datos Familias
+usethis::create_data(Famila)
+\end{lstlisting}
+
+El fragmento anterior crea {\bf data/Familia.rda} dentro de la fuente del paquete {\bf NuevoPaqueteR} y agrega {\bf LazyData: true} en el archivo {\bf DESCRIPTION}. Esto hace que el objeto R  {\bf Familia} esté disponible para los usuarios de {\bf NuevoPaqueteR} a través de {\bf NuevoPaqueteR::Familia}
+
+En la figura \ref{fig:familia} lo antes dicho. Ahora si queremos llamar a la base de datos {\bf Familia}, debemos nuevamente cargar la función {\bf load\_all()} y podemos utilizarla a nuestra conveniencia.
+
+Veamos un ejemplo de como lo podemos utilizar a la base de datos junto con las funciones antes creadas, para ello usamos el código del recuadro y también lo podemos evidenciar en la figura \ref{fig:pruebadata}.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Creación de la base de Datos Familia del paquete R}
+\label{fig:familia}
+\includegraphics[scale=.5]{graficos/familia.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Prueba de las funciones y base de datos del paquete R}
+\label{fig:pruebadata}
+\includegraphics[scale=.5]{graficos/pruebadata.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+\begin{lstlisting}{R}
+# Prueba de la base de datos y funciones
+devtools::load_all('.')
+data(Familia)
+Sumatoria(Familia$Personas)
+Media(Familia$Personas)
+\end{lstlisting}
+
+Se corrobora que la base de datos también esta funcionando correctamente, al igual que las funciones más adelante se hablará de la documentación de las mismas.
+
+\section{Metadatos del paquete}
+
+Existen dos archivos importantes que proporcionan metadatos sobre su paquete, estos son los archivos: {\bf DESCRIPTION} y {\bf NAMESPACE}. {\bf DESCRIPTION} proporciona metadatos generales sobre el paquete y {\bf NAMESPACE} describe qué funciones usa de otros paquetes y expone al mundo.
+
+En esta sección, se da a conocer la estructura básica de estos archivos y algunas de sus aplicaciones simples: como el nombre,  título de su paquete y quién lo escribió.
+
+\subsection{DESCRIPTION}
+
+Todo paquete debe tener un {\bf DESCRIPTION}. De hecho, es la característica que define a un paquete (RStudio y devtools consideran cualquier directorio que lo contenga {\bf DESCRIPTION} como un paquete). Para comenzar, la función {\bf usethis::create\_package()} agrega automáticamente un archivo {\bf DESCRIPTION} básico. Esto le permitirá comenzar a escribir el paquete sin tener que preocuparse por los metadatos hasta que lo necesite.
+
+Este archivo utiliza un formato de  simple llamado DCF, el formato de control de Debian. Donde cada línea consta de un nombre de campo y un valor, separados por dos puntos. Cuando los valores abarcan varias líneas, deben usar sangria y además posee varios campos directos.
+
+\subsubsection{Title y Description}
+
+Los {\bf Title} como {\bf Description} son una fuente frecuente de rechazos por razones no cubiertas por el R CMD check. Es por esa razon que se presentan los principales consejos que deben tener estos dos campos.
+
+\begin{itemize}
+    \item \textcolor{iess_blue}{{\bf Title: }}Se describe en una línea el paquete. Debe ser texto sin formato (sin marcado), en mayúsculas como un título, y NO terminar en un punto. Sea breve: los listados a menudo truncarán el título a 65 caracteres.
+    \item \textcolor{iess_blue}{{\bf Description: }}Es más detallado que el título. Puede usar varias oraciones, pero está limitado a un párrafo. Si su descripción abarca varias líneas, cada línea no debe tener más de 80 caracteres de ancho. Sangría las líneas siguientes con 4 espacios.
+\end{itemize}
+
+Otas sugerencias
+
+\begin{itemize}
+    \item Coloque los nombres de los paquetes, el software y las API de R entre comillas simples.
+    \item No incluya el nombre del paquete, especialmente en Title, que a menudo tiene el prefijo del nombre del paquete.
+    \item En la descripción no se debe comenzar con: {\it Un paquete para} o {\it Este paquete hace}.
+\end{itemize}
+
+{\bf Ejemplo:}
+\begin{lstlisting}{R}
+Title: Nuevo Paquete R de Funciones Simples
+Description: Utlizar funciones simples a menudos se complican
+    demasida dada esta circunstancia se emplean 3 funciones:
+    'Suma', 'Sumatoria', 'Media' para realizar calculos rapidos
+    sin la necesidad de escribir varias lineas de codigo.
+\end{lstlisting}
+{\bf Nota: }Un buen título y descripción son importantes, especialmente si planea lanzar su paquete a CRAN, porque aparecen en la página de descarga de CRAN.
+
+\subsubsection{Author: ¿Quién eres?}
+
+Para identificar al autor del paquete y a quién contactar si algo sale mal, use el campo {\bf Authors@R}. Este campo es inusual porque contiene código R ejecutable en lugar de texto sin formato. Para ello se utiliza la función {\bf person()} y posee 5 argumentos de entrada:
+
+\begin{lstlisting}{R}
+person(given, family, email, role, comment)
+\end{lstlisting}
+
+Donde:
+\begin{enumerate}
+  \item {\bf Nombre:} Esta especificado por los dos primeros argumentos, given y family (Nombre, Apellido).
+  \item {\bf email:} Es la dirección del correo, y además es la que utiliza CRAN para informarle si es necesario reparar su paquete para permanecer en CRAN.
+  \item {\bf role:} Es el cargo de las personas entre las mas importantes:
+  \begin{itemize}
+    \item[cre] Creador o mantenedor.
+    \item[aut] Autores, aquellos que han hecho contribuciones significativas al paquete.
+    \item[ctb] Contribuyentes, aquellos que han hecho contribuciones más pequeñas.
+    \item[cph] Titular de derechos de autor. Esto se utiliza si los derechos de autor pertenecen a alguien que no sea el autor, normalmente una empresa (es decir, el empleador del autor).
+    \item[fnd] Financiador, las personas u organizaciones que han proporcionado apoyo financiero para el desarrollo del paquete.
+  \end{itemize}
+  \item {\bf comment:} Es argumento opcional, el mas relevante es el ORCID (es un código alfanumérico, no comercial, que identifica de manera única a científicos y otros autores académicos.)
+\end{enumerate}
+
+{\bf Ejemplo:}
+\begin{lstlisting}{R}
+# Unico autor
+Authors@R:
+    person("Jonathan", "Pallasco",
+           email = "jonathan.pallasco@epn.edu.ec",
+           role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-2524-9390")
+
+# Varios autores
+Authors@R:
+    c(person("Jonathan", "Pallasco",
+           email = "jonathan.pallasco@epn.edu.ec",
+           role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-2524-9390"),
+      person("Miguel", "Flores",
+           email = "jonathan.pallasco@epn.edu.ec",
+           role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-7742-1247"))
+\end{lstlisting}
+
+
+La primera parte dice que Jonathan Pallasco es tanto el mantenedor (cre) como el autor (aut) y que su dirección de correo electrónico es jonathan.pallasco@epn.edu.ec, con id de investigador: 0000-0002-7742-1247 (ORCID).
+
+\subsubsection{Url y BugReports}
+
+Es una buena idea enumerar otros lugares donde las personas pueden obtener más información sobre su paquete. El campo {\bf URL} se usa comúnmente para anunciar el sitio web del paquete y para vincular a un repositorio de fuente pública, donde ocurre el desarrollo. Las URL múltiples se separan con una coma. {\bf BugReportses} es la URL donde se deben enviar los informes de errores, por ejemplo, como problemas de GitHub.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Conexión del paquete R con el GitHub}
+\label{fig:urls}
+\includegraphics[scale=.62]{graficos/urls.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+Si usa la función {\bf use\_github()} para conectar su paquete local a un repositorio remoto de GitHub, se completará automáticamente URLy BugReports. Si un paquete ya está conectado a un repositorio remoto de GitHub, simplemente debemos usar la función {\bf use\_github\_links()} simplemente agregar los enlaces en el archivo {\bf DESCRIPTION}.
+
+por otro lado como aun no tenemos conectado nuestro paquete al GitHub, debes usar la función {\bf use\_github()} y automáticamente se crean los enlaces de {\bf Url} y {\bf BugReports} como se muestra a continuación.
+
+\begin{lstlisting}{R}
+# Obtencion de las Urls
+usethis::use_github()
+\end{lstlisting}
+
+Ademas, en la figura \ref{fig:urls}, se puede vizualizar que se crearon las Urls de {\bf Url} y {\bf BugReports} respectivamente. En adicional, se crea automaticamente el repositorio de nuestro paquete R en nuestro usuario de GitHub personal, dependiendo del cuál este conectado tu máquina. En la figura \ref{fig:github}, se observa el repositorio de del paquete R como repositorio de GitHub.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Repositorio del paquete R en nuestro usuario de GitHub}
+\label{fig:github}
+\includegraphics[scale=.62]{graficos/github.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+
+\subsubsection{Otros campos}
+
+Algunos otros campos del archivo {\bf DESCRIPTION} son muy utilizados y vale la pena conocerlos:
+
+\begin{itemize}
+    \item {\bf Encoding:} Describe la codificación de caracteres de los archivos en todo el paquete. Encoding: UTF-8 es ahora la codificación de texto más utilizada.
+    \item {\bf Collate:} controla el orden en que se obtienen los archivos R. Esto solo importa si su código tiene efectos secundarios; más comúnmente porque está usando S4.
+    \item {\bf Version:} Realmente importante como una forma de comunicar dónde se encuentra su paquete en su ciclo de vida y cómo evoluciona con el tiempo
+    \item {\bf LazyData:} Es relevante si su paquete pone los datos a disposición del usuario. Si especifica LazyData: true, los conjuntos de datos se cargan de forma diferida, lo que hace que estén disponibles de forma más inmediata, es decir, los usuarios no tienen que utilizar data().
+  \end{itemize}
+
+\subsubsection{Campos personalizados}
+
+Si desea enviar a CRAN, le recomendamos que cualquier nombre de campo personalizado comience con Config/. Presentamos un ejemplo de esto anteriormente, donde {\bf Config/Needs/website} se usa para registrar paquetes adicionales necesarios para construir el sitio web de un paquete.
+
+Puede notar que {\bf create\_package()} escribe dos campos más que aún no hemos discutido, relacionados con el uso del paquete {\bf roxygen2} para la documentación.
+
+\begin{lstlisting}{R}
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+\end{lstlisting}
+
+\subsubsection{Archivo DESCRIPTION final}
+
+Una vez visto todos los campos y usando las funciones necesarias, junto con ejemplos para llenar algunos de los campos se presenta en la figura \ref{fig:DESCRIPTION}, una versión final del archivo {\bf DESCRIPTION}, usando las sugerencias establecidas.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Versión final del archivo {\bf DESCRIPTION} del paquete R }
+\label{fig:DESCRIPTION}
+\includegraphics[scale=.62]{graficos/DESCRIPTION.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+\subsection{NAMESPACE}
+
+El archivo {\bf NAMESPACE} se parece un poco al código R. Cada línea contiene una {\bf directiva} : S3method(), export(), exportClasses(), etc. Cada directiva describe un objeto R y dice si se exporta desde este paquete para que lo usen otros, o si se importa desde otro paquete para usarlo localmente.
+
+En total, hay ocho directivas de espacio de nombres. Cuatro describen las exportaciones:
+
+\begin{enumerate}
+    \item {\bf export(): }Funciones de exportación (incluidos los genéricos S3 y S4).
+    \item {\bf exportPattern(): }Exporta todas las funciones que coinciden con un patrón.
+    \item {\bf exportClasses()} y {\bf exportMethods(): } Funciones de exportación (incluidos los genéricos S3 y S4).
+    \item {\bf S3method(): }exportar métodos S3.
+\end{enumerate}
+
+Y cuatro describen las importaciones:
+
+\begin{enumerate}
+    \item {\bf import(): }Importa todas las funciones de un paquete.
+    \item {\bf importFrom(): }Importar funciones seleccionadas (incluidos los genéricos de S4).
+    \item {\bf importClassesFrom()} y {\bf importMethodsFrom(): } Importar clases y métodos S4.
+\end{enumerate}
+
+No recomiendo escribir estas directivas a mano. En el siguiente capitulo se aprenderá cómo generar el archivo {\bf NAMESPACE} con {\bf roxygen2}. Hay tres ventajas principales al usar {\bf roxygen2}:
+
+\begin{itemize}
+    \item Las definiciones de espacios de nombres se encuentran junto a su función asociada, por lo que cuando lee el código, es más fácil ver lo que se importa y exporta.
+    \item {\bf Roxygen2} abstrae algunos de los detalles de {\bf NAMESPACE}. Solo necesita aprender una etiqueta, {\bf @export} que generará automáticamente la directiva correcta para funciones, métodos S3, métodos S4 y clases S4.
+    \item {\bf Roxygen2} hace ordenado al archivo {\bf NAMESPACE}. No importa cuántas veces lo use {\bf @importFrom(foo, bar)}, solo obtendrá un  {\bf @importFrom(foo, bar)} en su archivo NAMESPACE. Esto facilita adjuntar directivas de importación a cada función que las necesite, en lugar de tratar de administrarlas en un lugar central.
+\end{itemize}
+
+
+

@@ -36,7 +36,9 @@ REP_seg <- 'Nuevo paquete R'
 paste( 'Paquete R', parametros$seguro )
 REP_fec_fin <- format( parametros$fec_fin, '%Y-%m-%d' )
 REP_fec_val <- format( ymd( '2019-09-16' ), '%Y-%m-%d' )
-REP_watermark <- paste0( 'Manual para crear un paquete en R ', parametros$fec_eje, ' ', format( Sys.time(), '%H:%M:%S' ) )
+REP_watermark <- paste0( 'Manual Nuevo Paquete R'
+                         # , parametros$fec_eje, ' ', format( Sys.time(), '%H:%M:%S' )
+)
 REP_version <- digest( paste0( 'EPN', format( Sys.time(), '%Y%m%d%H' ) ), algo = 'sha256', file = FALSE )
 
 # Copia de resultados  -----------------------------------------------------------------------------
@@ -48,8 +50,21 @@ REP_file_latex_org <- c( paste( parametros$work_dir, 'Reportes/bibliografia_libr
                          paste( parametros$work_dir, 'Reportes/EPN.png', sep = ''),
                          paste( parametros$work_dir, 'Reportes/logo_iess_azul.png', sep = ''),
                          paste( parametros$work_dir, 'Reportes/PaqueteR.png', sep = ''),
-                         paste( parametros$work_dir, 'Reportes/NuevoPaqueteR.png', sep = '')
-                         )
+                         paste( parametros$work_dir, 'Reportes/NuevoPaqueteR.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/git.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/funciones.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/pruebafunciones.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/existe.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/check.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/familia.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/pruebadata.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/urls.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/github.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/DESCRIPTION.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/Archivos_Rd.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/NAMESPACE.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/doc_data.png', sep = '')
+)
 
 REP_file_latex_des <- c( paste( REP_rep_dir, 'bibliografia_libros.bib', sep = '' ),
                          paste( REP_rep_dir, 'bibliografia_articulos.bib', sep = '' ),
@@ -59,8 +74,22 @@ REP_file_latex_des <- c( paste( REP_rep_dir, 'bibliografia_libros.bib', sep = ''
                          paste( REP_rep_dir, 'graficos/EPN.png', sep = ''),
                          paste( REP_rep_dir, 'graficos/logo_iess_azul.png', sep = ''),
                          paste( REP_rep_dir, 'graficos/PaqueteR.png', sep = ''),
-                         paste( REP_rep_dir, 'graficos/NuevoPaqueteR.png', sep = '')
-                         )
+                         paste( REP_rep_dir, 'graficos/NuevoPaqueteR.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/git.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/funciones.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/pruebafunciones.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/existe.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/check.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/familia.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/pruebadata.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/urls.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/github.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/DESCRIPTION.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/Archivos_Rd.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/NAMESPACE.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/doc_data.png', sep = '')
+
+)
 
 REP_file_latex_clean <- c( paste( REP_rep_dir, 'bibliografia_libros.bib', sep = '' ),
                            paste( REP_rep_dir, 'bibliografia_articulos.bib', sep = '' ),

@@ -1,0 +1,314 @@
+%---------------------------------------------------------------------------------------------------
+\chapter[Documentación de las funciones y bases de datos]{Documentación de las funciones y bases de datos}
+\label{documentacion}
+%--------------------------------------------------------------------------------------------------
+
+En este capitulo se aprenderá sobre la documentación de funciones y bases de datos, a la que se accede mediante {\bf ?} o {\bf help()}. Base R proporciona una forma estándar de documentar un paquete donde cada función y bases de datos se documenta en un tema, un archivo {\bf .Rd} en el directorio {\bf man/}. Estos archivos usan una sintaxis personalizada, basada libremente en LaTeX, que se procesan en HTML, texto sin formato o pdf, según sea necesario, para su visualización.
+
+\section{Documentación de las funciones}
+
+En esta sección nos centraremos en la documentación de funciones, pero las mismas ideas se aplican a la documentación de conjuntos de datos, clases y genéricos y paquetes. Para ello se va a ser uso del paquete de R {\bf roxigen2}.
+
+\subsection{Conceptos basicos del paquete R {\bf roxigen2}}
+
+Para comenzar, trabajaremos con el flujo de trabajo básico de {\bf roxigen2} y analizaremos la estructura general de los comentarios de {\bf roxigen2} que se organizan en bloques y etiquetas.
+
+\subsubsection{El flujo de trabajo de la documentación}
+
+Comenzamos el flujo de trabajo de la documentación agregando comentarios de {\bf roxygen} encima de su función. Los comentarios de roxygen son comentarios que comienzan con comilla simple {\bf '}. A continuación se presenta unu ejemplo de una  función con comentarios roxigen.
+
+\begin{lstlisting}{R}
+#' Add together two numbers
+#'
+#' @param x A number.
+#' @param y A number.
+#' @return A numeric vector.
+#' @examples
+#' add(1, 1)
+#' add(10, 1)
+add <- function(x, y) {
+  x + y
+}
+\end{lstlisting}
+
+\subsubsection{Comentarios, bloques y etiquetas de roxygen2}
+
+Como ya sabemos la estructura del flujo de trabajo básico, hablemos un poco más sobre la sintaxis. Los comentarios de {\bf roxygen2} comienzan con {\bf \#'} y todos los comentarios de {\bf roxygen2}  que preceden a una función se llaman colectivamente un bloque . Los bloques se dividen en etiquetas , que parecen {\bf @tagName} y  {\bf @tagValue}, y el contenido de una etiqueta se extiende desde el final del nombre de la etiqueta hasta el comienzo de la siguiente etiqueta. Un bloque puede contener texto antes de la primera etiqueta que se llama {\bf introducción} . Por defecto, cada bloque generará un único tema de documentación , es decir, un archivo {\bf .Rd} en el directorio {\bf man/}.
+
+A continuación presentamos algunas de las etiquetas más utilizadas: {\bf @param}, {\bf @return},  {\bf @seealso}, {\bf @example},  {\bf @export}, etc.
+
+\subsubsection{Título, descripción, detalles}
+
+La {\bf introducción} proporciona un título, una descripción y, opcionalmente, detalles para la función:
+
+\begin{enumerate}
+  \item El {\bf título} Está tomado de la primera oración. Debe escribirse en mayúsculas y minúsculas, no terminar en un punto y debe ir seguido de una línea en blanco. El título se muestra en varios índices de funciones y es lo que el usuario verá normalmente cuando explore múltiples funciones.
+  \item La {\bf descripción} está tomada del siguiente párrafo. Se muestra en la parte superior de la documentación y debe describir brevemente las características más importantes de la función.
+  \item Los {\bf detalles} adicionales son cualquier cosa después de la descripción. Los detalles son opcionales, pero pueden tener cualquier longitud, por lo que son útiles si desea profundizar en algún aspecto importante de la función.
+\end{enumerate}
+A continuación se presenta un ejemplo de como se debe documentar la descripción, no es necesario agregar etiquetas como: {\bf @title}, {\bf @description}, etc.
+
+{\bf Ejemplo:}
+\begin{lstlisting}{R}
+#' Add
+#'
+#' Add together two numbers.
+#'
+#' This function is set to quickly calculate basic
+#' operations.
+\end{lstlisting}
+
+\subsubsection{Argumentos}
+
+Para la mayoría de las funciones, la mayor parte de su trabajo se destinará a documentar cómo cada argumento afecta la salida de la función. Para ello, utilizará {\bf @param}(abreviatura de parámetro, sinónimo de argumento) seguido del nombre del argumento y una descripción de su acción.
+
+{\bf Ejemplo:}
+\begin{lstlisting}{R}
+#' @param string Input vector. Either a character vector, or something
+#'  coercible to one.
+\end{lstlisting}
+
+La documentación para la mayoría de los argumentos será relativamente breve, a menudo de una o dos oraciones. Pero debe ocupar todo el espacio que necesite
+
+\subsubsection{Heredar argumentos}
+
+Si su paquete contiene muchas funciones estrechamente relacionadas, es común que tengan argumentos que comparten el mismo nombre y significado. Sería molesto y propenso a errores copiar y pegar la misma documentaón {\bf @param} en cada función, por lo que roxygen2 proporciona {\bf @inheritParams} lo que le permite heredar la documentación de argumentos de otro paquete.
+
+{\bf @inheritParams} solo hereda documentos para argumentos que aún no están documentados, por lo que puede documentar algunos argumentos y heredar otros.
+
+\subsubsection{Valor de retorno}
+
+Tan importante como las entradas de una función es su salida. Documentar los resultados es el trabajo de la etiqueta {\bf @returns}. Aquí, el objetivo de los documentos no es describir exactamente cómo se calculan los valores (que es el trabajo de la descripción y los detalles), sino describir aproximadamente la "forma" general de la salida, es decir, qué tipo de objeto es, y sus dimensiones (si eso tiene sentido). Por ejemplo, si su función devuelve un vector, puede describir su tipo y longitud, o si su función devuelve un marco de datos, puede describir los nombres y tipos de las columnas y el número esperado de filas.
+
+{\bf Ejemplo:}
+\begin{lstlisting}{R}
+#' @returns A logical vector the same length as `string`.
+\end{lstlisting}
+
+\subsubsection{Ejemplos}
+
+Describir lo que hace una función es excelente, pero mostrar cómo funciona es aún mejor. Ese es el papel de la etiqueta {\bf @examples}, que utiliza código R ejecutable para demostrar lo que puede hacer una función. A diferencia de otras partes de la documentación en las que nos hemos centrado principalmente en lo que debe escribir, aquí le daremos algunos consejos breves sobre el contenido y luego nos centraremos principalmente en la mecánica. La mecánica de los ejemplos es compleja porque nunca deben fallar y se ejecutan en cuatro situaciones diferentes:
+\begin{enumerate}
+  \item Interactivamente usando la función {\bf example()}.
+  \item Durante {\bf R CMD check} en su computadora, o en otra computadora que controle (por ejemplo, acción de GitHub).
+  \item Durante {\bf R CMD check}la ejecución de CRAN.
+  \item Al construir su sitio web {\bf pkgdown}.
+\end{enumerate}
+
+Después de discutir qué poner en sus ejemplos, hablaremos sobre cómo mantener sus ejemplos autónomos, cómo mostrar errores si es necesario, manejar dependencias, ejecutar ejemplos, etc.
+
+\textcolor{iess_blue}{{\bf Contenido }}
+
+Use ejemplos para mostrar primero la operación básica de la función, luego para resaltar cualquier propiedad particularmente importante. Trate de mantenerse enfocado en las características más importantes sin meterse en la maleza de cada caso extremo: si hace que los ejemplos sean demasiado largos, se vuelve difícil para el usuario encontrar la aplicación clave que está buscando.
+
+\textcolor{iess_blue}{{\bf Enbalarlo y empacarlo }}
+
+En la medida de lo posible, mantenga sus ejemplos autónomos. Por ejemplo, esto significa:
+\begin{enumerate}
+  \item Si los modifica {\bf options()}, reinícielos al final del ejemplo.
+  \item Si crea un archivo, créelo en algún lugar {\bf tempdir()} y asegúrese de eliminarlo al final del ejemplo.
+  \item No cambie el directorio de trabajo.
+  \item No escribas en el portapapeles.
+  \item Evite acceder a los sitios web de los ejemplos. Si el sitio web no funciona, su ejemplo fallará y, por lo tanto {\bf R CMD check}, generará un error.
+\end{enumerate}
+
+\textcolor{iess_blue}{{\bf Errores }}
+
+¿Qué puede hacer si desea incluir código que provoque un error con fines de enseñanza? Hay dos opciones básicas:
+
+\begin{enumerate}
+  \item Puede envolver el código {\bf try()} para que se muestre el error, pero no detiene la ejecución del error.
+  \item Puede envolver el código {\bf dontrun{}} para que nunca lo ejecute {\bf example()}.
+\end{enumerate}
+
+Se a explicado la mayor cantidad de las componectes que posee la estructura de las funciones, a continuación se va a documentar las sunciones {\bf Suma()}, {\bf Sumatoria} y {\bf Media}, que se crearon para la aplicación práctica de como se crea un paquete R.
+
+\subsubsection{Documentación de las funciones creadas para la aplicación práctica}
+
+Con todo lo antes visto, ya podemos empezar a documentar nuestras funciones, por ejemplo vamos a agregar, un título, una descripción, los parámetros, el retorno, ejemplos a cada una de las funciones, en los recuadros se encuentran documentas las funciones
+
+\textcolor{iess_blue}{{\bf Funcion Suma()}}
+
+\begin{lstlisting}{R}
+#-------------------------------------------------------------------#
+#          Nuevo Paquete R Funcion Suma()                           #
+#                                                                   #
+#  Written by: Jonathan Pallasco                                    #
+#              Escuela Politecnica Nacional, Ecuador                #
+#              jonathan.pallasco@epn.edu.ec                         #
+#-------------------------------------------------------------------#
+
+##' Add 2 Numbers
+##'
+##' Create a function to calculate the sum of 2 numerical values.
+##' This object is used to add whole numbers or decimals.
+##'
+##' @param a First number.
+##' @param b Second number.
+##' @export
+##' @examples
+##' library(NuevoPaqueteR)
+##' a <- 10
+##' b <- 2.5
+##' Suma(a,b)
+
+Suma <- function(a,b){
+  suma <- a + b
+  return(suma)
+}
+\end{lstlisting}
+
+\textcolor{iess_blue}{{\bf Funcion Sumatoria()}}
+
+\begin{lstlisting}{R}
+#-------------------------------------------------------------------#
+#          Nuevo Paquete R Funcion Sumatoria()                      #
+#                                                                   #
+#  Written by: Jonathan Pallasco                                    #
+#              Escuela Politecnica Nacional, Ecuador                #
+#              jonathan.pallasco@epn.edu.ec                         #
+#-------------------------------------------------------------------#
+
+##' Mean of a vector
+##'
+##' Create a function to get the sum of a data set. This object is
+##' used to obtain the sum of a vector or numeric data set.
+##'
+##' @param vector A numeric vector.
+##' @export
+##' @examples
+##' library(NuevoPaqueteR)
+##' data(Familia)
+##' Sumatoria(Familia$Personas)
+
+Sumatoria <- function(vector){
+  n <- length(vector)
+  sumatoria <- 0
+  for (i in 1:n){
+    sumatoria <- sumatoria + vector[i]
+    }
+  return(sumatoria)
+}
+\end{lstlisting}
+
+\textcolor{iess_blue}{{\bf Funcion Media()}}
+
+\begin{lstlisting}{R}
+#-------------------------------------------------------------------#
+#              Nuevo Paquete R Funcion Media()                      #
+#                                                                   #
+#  Written by: Jonathan Pallasco                                    #
+#              Escuela Politecnica Nacional, Ecuador                #
+#              jonathan.pallasco@epn.edu.ec                         #
+#-------------------------------------------------------------------#
+
+##' Mean of a vector
+##'
+##' Create a function to get the arithmetic mean of a data set. This
+##' object is used to obtain the mean of a vector or numeric
+##' data set.
+##'
+##' @param vector A numeric vector.
+##' @export
+##' @examples
+##' library(NuevoPaqueteR)
+##' data(Familia)
+##' Media(Familia$Personas)
+
+Media <- function(vector){
+  n <- length(vector)
+  media <- Sumatoria(vector)/n
+  return(media)
+}
+\end{lstlisting}
+
+Ahora como ya tenemos documentadas nuestras funciones, se procede a utilizar las funciones {\bf document()} y {\bf roxygenise} de las librerias devtools y roxygen2 respectivamente, con el fin de generar un directorio llamado {\bf man/} con los archivos  {\bf Suma.Rd}, {\bf Sumatoria.Rd} y {\bf Media.Rd}. Cabe recalcar que si no tenemos instalado la libreria roxigen2, no se nos va a generar el directorio, para ello primero es necesario instalar el paquete y posteriormente llamarlo, en el cuadro siguiente se muestra el estracto de código que se debe utilizar para generar estos archivos.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Generación de los archivos .Rd de las fucniones creadas en el nuevo paquete R}
+\label{fig:Archivos_Rd}
+\includegraphics[scale=.62]{graficos/Archivos_Rd.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+\begin{lstlisting}{R}
+install.packages('roxygen2')
+library(roxygen2)
+devtools::document()
+roxigen2::roxygenise
+\end{lstlisting}
+
+En la figura \ref{fig:Archivos_Rd}, se puede vizualizar que se generaron 3 nuevos archivos en el directorio {\bf man/}, en el cual posee un código idéntico a {\bf LaTex} y su salida es un archivo {\bf html}. Este archivo html, sirve para obtener ayuda de la función que queremos utilizar del paquete, es importante tener una buena documentación para darnos cuenta que hace nuestra funcion o las de otros paquetes de R.
+
+Por otro lado, en la figura \ref{fig:NAMESPACE}, se observa que en el archivo {\bf NAMESPACE }, se generan automaticamente las funciones que se van a exportar para que puedan utilizar los usuarios al cargar el nuevo paquete R
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Generación de las funciones de exportación en el archivo NAMESPACE del nuevo paquete R}
+\label{fig:NAMESPACE}
+\includegraphics[scale=.62]{graficos/NAMESPACE.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+obviamente, utilizamos simplemente algunas etiquetas importantes, si se desea obtener información acerca de todas las etiquetas que se pueden utilizar, podemos revisar en la documentación de las funciones, en la siguiente página web, \url{https://r-pkgs.org/}.
+
+\section{Documentación de las bases de datos}
+
+Los objetos en el repositorio {\bf data/} siempre se exportan de manera efectiva (utilizan un mecanismo ligeramente diferente al archivo {\bf NAMESPACE} pero los detalles no son importantes). Esto significa que deben estar documentados. Documentar datos es como documentar una función con algunas diferencias menores.
+En lugar de documentar los datos directamente, documenta el nombre del conjunto de datos y lo guarda en formato R/. Por ejemplo, el bloque roxygen2 que usamos para documentar nuestra base de datos creada llamada {\bf Familia}, tiene el siguiente estracto de código.
+
+\begin{lstlisting}{R}
+#-------------------------------------------------------------------#
+#                                                                   #
+#              Nuevo Paquete R Base Familia                         #
+#                                                                   #
+#  Written by: Jonathan Pallasco                                    #
+#              Escuela Politecnica Nacional, Ecuador                #
+#              jonathan.pallasco@epn.edu.ec                         #
+#                                                                   #
+#-------------------------------------------------------------------#
+
+##' @title Number of People in a Family
+##' @description
+##' Data set corresponding to the surveys of the number of people
+##' who live in 200 families in Ecuador. Especially in poor areas
+##' of the country.
+##' @name Familia
+##' @docType data
+##' @format A data frame with 200 observations composed of the
+##' following 3 variables:
+##' \describe{
+##'   \item{Id}{Id of the surveyed families.}
+##'   \item{Persona}{Number of people in the family.}
+##'   \item{Tipo}{Type of Family according to the number of people
+##'   that make it up (Normal Family, Average Family, Large Family).}
+##' }
+##' @keywords datasets
+##'
+##' @examples
+##' library(NuevoPaqueteR)
+##' data(Familia)
+##' summary(Familia)
+##' attach(Familia)
+##' str(Familia)
+##'
+NULL
+\end{lstlisting}
+
+Ahora se procede a utilizar nuevamente las funciones {\bf document()} y {\bf roxygenise} de las librerias devtools y roxygen2 respectivamente, con el fin de generar el archivo {\bf Familia.Rd} en el directorio {\bf man/}, se puede ver en la siguiente figura \ref{fig:doc_data}
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Generación de documentación de la base de datos Familia del paquete R}
+\label{fig:doc_data}
+\includegraphics[scale=.62]{graficos/doc_data.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+Se vizualiza tambien que la documentación tiene una salida html, además podemos ver de que trata la base de datos.
