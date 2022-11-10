@@ -147,7 +147,7 @@ Con todo lo antes visto, ya podemos empezar a documentar nuestras funciones, por
 ##' @param b Second number.
 ##' @export
 ##' @examples
-##' library(NuevoPaqueteR)
+##' library(NPaqueteR)
 ##' a <- 10
 ##' b <- 2.5
 ##' Suma(a,b)
@@ -177,7 +177,7 @@ Suma <- function(a,b){
 ##' @param vector A numeric vector.
 ##' @export
 ##' @examples
-##' library(NuevoPaqueteR)
+##' library(NPaqueteR)
 ##' data(Familia)
 ##' Sumatoria(Familia$Personas)
 
@@ -211,7 +211,7 @@ Sumatoria <- function(vector){
 ##' @param vector A numeric vector.
 ##' @export
 ##' @examples
-##' library(NuevoPaqueteR)
+##' library(NPaqueteR)
 ##' data(Familia)
 ##' Media(Familia$Personas)
 
@@ -237,7 +237,7 @@ Ahora como ya tenemos documentadas nuestras funciones, se procede a utilizar las
 install.packages('roxygen2')
 library(roxygen2)
 devtools::document()
-roxigen2::roxygenise
+roxygen2::roxygenise
 \end{lstlisting}
 
 En la figura \ref{fig:Archivos_Rd}, se puede vizualizar que se generaron 3 nuevos archivos en el directorio {\bf man/}, en el cual posee un código idéntico a {\bf LaTex} y su salida es un archivo {\bf html}. Este archivo html, sirve para obtener ayuda de la función que queremos utilizar del paquete, es importante tener una buena documentación para darnos cuenta que hace nuestra funcion o las de otros paquetes de R.
@@ -290,7 +290,7 @@ En lugar de documentar los datos directamente, documenta el nombre del conjunto 
 ##' @keywords datasets
 ##'
 ##' @examples
-##' library(NuevoPaqueteR)
+##' library(NPaqueteR)
 ##' data(Familia)
 ##' summary(Familia)
 ##' attach(Familia)
@@ -311,4 +311,18 @@ Ahora se procede a utilizar nuevamente las funciones {\bf document()} y {\bf rox
 {\bf Fuente:} Software estadístico R Studio.}
 \end{figure}
 
-Se vizualiza tambien que la documentación tiene una salida html, además podemos ver de que trata la base de datos.
+Se vizualiza tambión que la documentación tiene una salida html, además podemos ver de que trata la base de datos.
+
+Ahora si podemos verificar nuevamente, si el paquete está funcionando correctamente usando la documentación en las funciones y en la base de datos. Para ello usamos la función {\bf check()}, y sus resultados se puede ver en la fig \ref{fig:check_data_funciones}, en la cual se observa  que ya no existe errores, no existen advertencias y no existen notas, entonces funciona correctamente el {\bf NPaqueteR} creado.
+
+Y si se desea verificar que las funciones estan correctamente definidas, podemos usar la función {\bf load\_all()} y podemos ejecutar algunos ejemplos.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Verificación de las funciones y data del NpaqueteR.}
+\label{fig:check_data_funciones}
+\includegraphics[scale=.62]{graficos/check_data_funciones.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}

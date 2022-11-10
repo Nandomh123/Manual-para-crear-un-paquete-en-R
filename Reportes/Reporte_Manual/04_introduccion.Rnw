@@ -13,6 +13,8 @@ En {\bf R}, la unidad fundamental del código compartible es el paquete. Un paqu
 
 ¿Por qué escribir un paquete? Una razón eficiente es que el usuario tiene un código que desea compartir con otros. Al agrupar su código en un paquete, es fácil que otras personas lo usen porque, al igual que nosotros, ya saben cómo usar los paquetes. Si su código está en un paquete, cualquier usuario de R puede descargarlo, instalarlo y aprender a usarlo fácilmente.
 
+Además en las siguietes capítulos, tambien se va a detallar como se puede realizar el sitio web para el nuevo paquete, haciendo uso de las librerias {\bf devtools}, {\bf roxygen2}, {\bf usethis}, {\bf pkgdown}, etc.
+
 %---------------------------------------------------------------------------------------------------
 \section{Objeto del Manual}
 \label{chap_Intro:objeto}

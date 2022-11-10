@@ -43,11 +43,10 @@ Luego procedemos a ejecutar la función {\bf create\_packages()} en la consola d
 
 \begin{lstlisting}{R}
 # Creamos un nuevo paquete
-usethis::create_package( 'C:/Users/Usuario01/Documents/Pasantes/
-                         Jonathan_Pallasco/NuevoPaqueteR' )
+usethis::create_package( 'C:/Users/Hp/Desktop/PR/NPaqueteR' )
 \end{lstlisting}
 
-Ahora se nos habre una nueva sección de R, en la cual ya se ha creado nuestro proyecto llamado {\bf NuevoPaqueteR}, como se muestra en la figura \ref{fig:NuevoPaqueteR}. Además, se puede observar que en este nuevo proyecto se construyó una lista 5 nuevos archivos los cuales se describen a continuación:
+Ahora se nos habre una nueva sección de R, en la cual ya se ha creado nuestro proyecto llamado {\bf NPaqueteR}, como se muestra en la figura \ref{fig:NuevoPaqueteR}. Además, se puede observar que en este nuevo proyecto se construyó una lista 5 nuevos archivos los cuales se describen a continuación:
 
 \begin{enumerate}
 \item {\bf .Rbuildignore} : Enumera los archivos que debemos tener pero que no deben incluirse al compilar el paquete R desde el código fuente.
@@ -72,7 +71,7 @@ Ahora se nos habre una nueva sección de R, en la cual ya se ha creado nuestro p
 
 \section{Conversión del paquete en un repositorio Git}
 
-El directorio {\bf NuevoPaqueteR} es un paquete fuente R y un proyecto RStudio. Ahora lo convertimos también en un repositorio Git. Para ello vamos a usar la función {\bf use\_git()}. En esta función, no se especifican los parámetros de entrada.
+El directorio {\bf NPaqueteR} es un paquete fuente R y un proyecto RStudio. Ahora lo convertimos también en un repositorio Git. Para ello vamos a usar la función {\bf use\_git()}. En esta función, no se especifican los parámetros de entrada.
 
 \begin{lstlisting}{R}
 # Creamos el repositorio git
@@ -198,7 +197,6 @@ Llamar a la función {\bf load\_all()} es lo único que se debe hacer para poner
 \begin{lstlisting}{R}
 # Lamamos a las funciones creadas en el directorio R
 devtools::load_all('.')
-}
 \end{lstlisting}
 
 Simplemente debemos llamar a {\bf Suma()}, {\bf Sumatoria()} y {\bf Media()?} para ver cómo funciona. El llamado se lo realiza de la siguiente manera,
@@ -226,12 +224,12 @@ Media(vector)
 {\bf Fuente:} Software estadístico R Studio.}
 \end{figure}
 
-En la figura \ref{fig:pruebafunciones}, se observa que se carga el paquete {\bf NuevoPaqueteR}, por ende se cargaron las funciones antes mensionadas. Además se observa en la sonsola que estan funcionando correctamente. Ahora verifiquemos de manera manueal que esta correcto el resultado, entonces se procede a efectuar todas las operaciones antes mensionadas, lo cual coinciden con el resultado de las funciones creadas
+En la figura \ref{fig:pruebafunciones}, se observa que se carga el paquete {\bf NPaqueteR}, por ende se cargaron las funciones antes mensionadas. Además se observa en la sonsola que estan funcionando correctamente. Ahora verifiquemos de manera manueal que esta correcto el resultado, entonces se procede a efectuar todas las operaciones antes mensionadas, lo cual coinciden con el resultado de las funciones creadas
 
 \begin{align*}
   &\mbox{Suma} = 10 + 21.31 = 31.31 \\\\
   &\mbox{Sumatoria} = 5 + 2 + 4 + 5.3 + 10.23 + 15 + 1.23 = 42.76\\\\
-  &\mbox{Media} = \frac{5 + 2 + 4 + 5.3 + 10.23 + 15 + 1.23}{7} = 10.1085
+  &\mbox{Media} = \frac{5 + 2 + 4 + 5.3 + 10.23 + 15 + 1.23}{7} = 6.1085
 \end{align*}
 
 \begin{lstlisting}{R}
@@ -253,11 +251,11 @@ exists("Media", where = globalenv(), inherits = FALSE)
 
 Tenga en cuenta que {\bf load\_all()} ha hecho que las funciones esté disponible, aunque no existe en el entorno global, para ello verificamos si existen en el entorno global con la función {\bf exists()} como se muestra en el recuadro y además en la figura \ref{fig:existe}. Como se ve FALSE en las 3 funciones, entonces concluimos que las funciones no existen en el entorno global, por otro lado si fuese TRUE, entonces eso indica que todavía está usando un flujo de trabajo orientado a secuencias de comandos y obteniendo sus funciones.
 
-La {\bf load\_all()} simula el proceso de creación, instalación y conexión del paquete {\bf NuevoPaqueteR}. A medida que su paquete acumula más funciones, algunas exportadas, otras no, algunas de las cuales se llaman entre sí, algunas de las cuales llaman a funciones de los paquetes de los que depende, {\bf load\_all()} le brinda una idea mucho más precisa de cómo se está desarrollando el paquete que las funciones de conducción de prueba definidas en el entorno mundial. También {\bf load\_all()} permite una iteración mucho más rápida que construir, instalar y adjuntar el paquete.
+La {\bf load\_all()} simula el proceso de creación, instalación y conexión del paquete {\bf NPaqueteR}. A medida que su paquete acumula más funciones, algunas exportadas, otras no, algunas de las cuales se llaman entre sí, algunas de las cuales llaman a funciones de los paquetes de los que depende, {\bf load\_all()} le brinda una idea mucho más precisa de cómo se está desarrollando el paquete que las funciones de conducción de prueba definidas en el entorno mundial. También {\bf load\_all()} permite una iteración mucho más rápida que construir, instalar y adjuntar el paquete.
 
 \subsubsection{Verificación del funcionamiento del paquete R}
 
-Tenemos evidencia empírica informal que {\bf Suma()}, {\bf Sumatoria()} y {\bf Media()} funcionan. Pero, ¿cómo podemos estar seguros de que todas las partes móviles del paquete {\bf NuevoPaqueteR} todavía funcionan? Verificar esto puede parecer una tontería, después de una adición tan pequeña, pero es bueno establecer el hábito de verificar esto con frecuencia.
+Tenemos evidencia empírica informal que {\bf Suma()}, {\bf Sumatoria()} y {\bf Media()} funcionan. Pero, ¿cómo podemos estar seguros de que todas las partes móviles del paquete {\bf NPaqueteR} todavía funcionan? Verificar esto puede parecer una tontería, después de una adición tan pequeña, pero es bueno establecer el hábito de verificar esto con frecuencia.
 \begin{figure}[H]
 \centering
 \captionsetup{justification=centering}
@@ -288,7 +286,7 @@ La ubicación más común para los datos del paquete es el repositorio {\bf data
 
 \begin{enumerate}
   \item {\bf Id:} Id de la familia.
-  \item {\bf Personas:} Cantidad de personas que conforman una familia.
+  \item {\bf Persona:} Cantidad de personas que conforman una familia.
   \item {\bf Tipo:} Tipo de Familia según la cantidad de personas que la conforman (Familia Normal, Familia Media, Familia Numerosa)
 \end{enumerate}
 
@@ -300,12 +298,12 @@ install.packages("data.table")
 library(data.table)
 Familia <- as.data.table( c(1:200) )
 setnames(Familia, c('Id'))
-Familia <- Familia[ , Personas := sample(1:10, size = 200,
+Familia <- Familia[ , Persona := sample(1:10, size = 200,
                                          replace = TRUE) ]
-Familia[ Personas <= 4, Tipo := 'Familia Normal' ]
-Familia[ Personas >= 4 & Personas <= 6 ,
+Familia[ Persona <= 4, Tipo := 'Familia Normal' ]
+Familia[ Persona >= 4 & Persona <= 6 ,
          Tipo := 'Familia Media' ]
-Familia[ Personas >= 7 & , Tipo := 'Familia Numerosa' ]
+Familia[ Persona >= 7 , Tipo := 'Familia Numerosa' ]
 \end{lstlisting}
 
 A continuación en la tabla \ref{tab:Familias}, se encuentra los primeros datos de la base creada.
@@ -333,7 +331,7 @@ Ahora simplemente debemos guardarlo en el directorio {\bf data} usando la funci�
 
 \begin{lstlisting}{R}
 # Creacion de la base de datos Familias
-usethis::create_data(Famila)
+usethis::use_data(Familia)
 \end{lstlisting}
 
 El fragmento anterior crea {\bf data/Familia.rda} dentro de la fuente del paquete {\bf NuevoPaqueteR} y agrega {\bf LazyData: true} en el archivo {\bf DESCRIPTION}. Esto hace que el objeto R  {\bf Familia} esté disponible para los usuarios de {\bf NuevoPaqueteR} a través de {\bf NuevoPaqueteR::Familia}
@@ -366,8 +364,8 @@ Veamos un ejemplo de como lo podemos utilizar a la base de datos junto con las f
 # Prueba de la base de datos y funciones
 devtools::load_all('.')
 data(Familia)
-Sumatoria(Familia$Personas)
-Media(Familia$Personas)
+Sumatoria(Familia$Persona)
+Media(Familia$Persona)
 \end{lstlisting}
 
 Se corrobora que la base de datos también esta funcionando correctamente, al igual que las funciones más adelante se hablará de la documentación de las mismas.
@@ -386,7 +384,7 @@ Este archivo utiliza un formato de  simple llamado DCF, el formato de control de
 
 \subsubsection{Title y Description}
 
-Los {\bf Title} como {\bf Description} son una fuente frecuente de rechazos por razones no cubiertas por el R CMD check. Es por esa razon que se presentan los principales consejos que deben tener estos dos campos.
+Los {\bf Title} como {\bf Description} son una fuente frecuente de rechazos por razones no cubiertas por el R CMD check. Es por esa razón que se presentan los principales consejos que deben tener estos dos campos.
 
 \begin{itemize}
     \item \textcolor{iess_blue}{{\bf Title: }}Se describe en una línea el paquete. Debe ser texto sin formato (sin marcado), en mayúsculas como un título, y NO terminar en un punto. Sea breve: los listados a menudo truncarán el título a 65 caracteres.
@@ -448,11 +446,11 @@ Authors@R:
     c(person("Jonathan", "Pallasco",
            email = "jonathan.pallasco@epn.edu.ec",
            role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0003-2524-9390"),
+           comment = c(ORCID = "0000-0003-2524-9390")),
       person("Miguel", "Flores",
            email = "jonathan.pallasco@epn.edu.ec",
            role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-7742-1247"))
+           comment = c(ORCID = "0000-0002-7742-1247")))
 \end{lstlisting}
 
 
@@ -518,8 +516,6 @@ RoxygenNote: 7.2.1
 
 \subsubsection{Archivo DESCRIPTION final}
 
-Una vez visto todos los campos y usando las funciones necesarias, junto con ejemplos para llenar algunos de los campos se presenta en la figura \ref{fig:DESCRIPTION}, una versión final del archivo {\bf DESCRIPTION}, usando las sugerencias establecidas.
-
 \begin{figure}[H]
 \centering
 \captionsetup{justification=centering}
@@ -529,6 +525,8 @@ Una vez visto todos los campos y usando las funciones necesarias, junto con ejem
 \caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
 {\bf Fuente:} Software estadístico R Studio.}
 \end{figure}
+
+Una vez visto todos los campos y usando las funciones necesarias, junto con ejemplos para llenar algunos de los campos se presenta en la figura \ref{fig:DESCRIPTION}, una versión final del archivo {\bf DESCRIPTION}, usando las sugerencias establecidas.
 
 \subsection{NAMESPACE}
 

@@ -9,7 +9,7 @@ Familia[ Personas <= 4, Tipo := 'Familia Normal' ]
 Familia[ Personas >= 4 & Personas <= 6 ,
          Tipo := 'Familia Media' ]
 Familia[ Personas >= 7 , Tipo := 'Familia Numerosa' ]
-Familia <- head(Familia, 10)
+Familia <- head(Familia, 15)
 
 
 # Guardando ---------------------------------------------------------------

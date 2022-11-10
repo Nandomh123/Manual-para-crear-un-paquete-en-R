@@ -5,5 +5,570 @@
 
 En esta sección se va explicar de manera detallada como se crea un sitio web de un paquete de R Studio, también se va a realizar una aplicación práctica del mismo paquete que fue creado anteriormente para poder ver su funcionamiento.
 
-\section{Supuestos demográficos}
+Para ello primero vamos a empezar installando nuestro paquete creado.
+
+\begin{lstlisting}{R}
+install.packages("PaqueteR")
+\end{lstlisting}
+
+\section{Pkgdown}
+
+El objetivo de pkgdown es facilitar la creación de un sitio web de paquetes elegante y útil con un mínimo de trabajo. Puede tener un sitio web básico en funcionamiento en solo un par de minutos. Para ello, simplemente debemos utilizar las funciones {\bf use\_pkgdown()} y {\bf build\_site()}, de los paquetes {\bf usethis} y {\bf pkgdown} respectivamente. A continuación se presenta la sintaxis que se debe ocupar para crear un sitio web básico de nuestro NuevoPaqueteR creado en los anteriores capítulos.
+
+Para esto, es necesario tener instalado el paquete {\bf pkgdown}, ya que posee funciones que nos ayudara a personalizar a nuestra conveniencia nuestra página web.
+
+\begin{lstlisting}{R}
+install.packages("pkgdown")
+usethis::use_pkgdown()
+pkgdown::build_site()
+\end{lstlisting}
+
+Con esta funciones se crea un directorio llamado {\bf docs/}, en donde se encuentra almacenado la información que se encuentra en el archivo {\bf DESCRIPTION}  de nuestro nuevo paquete R. Además, se crea un nuevo archivo {\bf \_pkgdown.yml}, en donde podemos ordenar a nuestra conveniencia las funciones que se crearon, al igual que la base de datos. En la figura \ref{fig:pkgdown}, se muestra el proyecto de nuestro paquete en las cuales se ha creado los archivos antes mencionados.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Primeros pasos para generar el sitio web del nuevo paquete R}
+\label{fig:pkgdown}
+\includegraphics[width=14cm, height=9.5cm]{graficos/pkgdown.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Sitio web básico del nuevo paquete R}
+\label{fig:website}
+\includegraphics[width=14cm, height=9.5cm]{graficos/website.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+Y despues, de un tiempo se nos crea nuestro primer web site, como se muestra en la figura \ref{fig:website}, este sitio web solo contiene información de las 3 funciones creadas y tambien de la base de datos, las cuales se van a organizar y personalizar su apariencia más adelante.
+
+Como nuestro {\bf NPaqueteR} está vinculado con nuestra cuenta de GitHub, también se recomienda configurar acciones de GitHub para crear y publicar automáticamente su sitio, para ello usamos la función {\bf use\_pkgdown\_github\_pages()}, esto nos ayuda a generar una url, que nos da la ubicación final del sitio web. Su sintaxis se muestra en el recuadro y en la figura \ref{fig:urlwebsite}, se muestra como se genera la dirección final del sitio web en nuestro archivo {\bf \_pkgdown.yml}
+
+\begin{lstlisting}{R}
+pkgdown::use_pkgdown_github_pages()
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Generación de la url final del sitio web del NPaqueteR.}
+\label{fig:urlwebsite}
+\includegraphics[scale=.62]{graficos/urlwebsite.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+Ahora simplemente, podemos subir todos los cambios realizados hasta el momento al proyecto del {\bf NPaqueteR} que se encuentra en nuestra cuenta GitHub de la siguiente manera:
+
+\begin{enumerate}
+\item De la pestaña Git, seleccionamos los cambios realizados, y damos en {\bf Commit}.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{{\bf Paso1}: Actividades realizadas de la pestaña Git en el Software R.}
+\label{fig:github_1}
+\includegraphics[width=14cm, height=9cm]{graficos/github_1.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+\item Agregamos algún comentario a los cambios realizados y damos click en la opción {\bf Commit}.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{{\bf Paso2}: Agregamos comentarios a los cambios realizados.}
+\label{fig:github_2}
+\includegraphics[width=14cm, height=9cm]{graficos/github_2.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+\item Si se agregaron todos los comentarios a cada actividad realizada, podemos dar en la opción {\bf close}.
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{{\bf Paso3}: Verificación de los cambios se realizaron.}
+\label{fig:github_3}
+\includegraphics[width=14cm, height=8cm]{graficos/github_3.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+\item Damos click en la opción {\bf pull}, para descargarnos los cambios que se realizaron, en este caso no van haber cambios debido a que no existe otra persona modificando el paquete y damos click en la opcion {\bf close}.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{{\bf Paso4}: Descargamos los cambios que se realizo por otro persona}
+\label{fig:github_4}
+\includegraphics[width=14cm, height=8cm]{graficos/github_4.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+\item Damos click en la opción {\bf push}, para subir todos los cambios realizado y damos click en la opcion {\bf close} para confirmar que se subieron los cambio.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{{\bf Paso5}: Subimos los cambios finales al GitHub}
+\label{fig:github_5}
+\includegraphics[width=14cm, height=9cm]{graficos/github_5.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+\end{enumerate}
+
+Una vez realizado todo este proceso, nuestro sitio web del paquete se encuentra publicado en nuestra cuenta de GitHub, el cual lo podemos visualizar en el siguiente link \url{https://nandomh123.github.io/NPaqueteR/}. Claramente el sitio web del {\bf NPaqueteR} es básica.
+
+
+\section{Personaliza tu sitio}
+
+En esta sección se discute dos técnicas que solo requieren ajustes en su {\bf \_pkgdown.yml}: temas (colores y fuentes) y diseño (contenido de la barra de navegación, barra lateral, pie de página). Luego discutiremos cómo agregar HTML adicional y otros archivos.
+
+La mayoría de las funciones de temas funcionan solo con Bootstrap 5, lo cual toma por defecto el mismo para nuestro sitio web ( ver figura \ref{fig:website}).
+
+
+\subsection{Temas}
+
+Existen dos formas de cambiar el estilo visual de su sitio web {\bf \_pkgdown.yml}: usando un tema de {\bf bootswatch} preempaquetado o personalizando las variables del tema con {\bf bslib}.
+
+\subsubsection{Tema de Bootswatch}
+
+La forma más fácil de cambiar la apariencia completa de su sitio web es usar un tema de Bootswatch. Existen gran variedad de temas Bootswatch, los cuales se puede extraer de la paginá \url{https://bootswatch.com/}, para personalizar el sitio vamos a utilizar el tema {\bf Minty}, para ello solo debemos agregar las siguientes lineas en el {\bf \_pkgdown.yml}.
+
+\begin{lstlisting}{R}
+url: https://nandomh123.github.io/NPaqueteR/
+template:
+  bootstrap: 5
+  bootswatch: minty
+\end{lstlisting}
+
+La pariencia del sitio web se presenta en la figura \ref{fig:minty}, el cual es demasiado diferente al sitio web que se crea por defecto (ver figura \ref{fig:website}).
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Sitio web del paquete, usando el tema bootswatch {\bf Minty}.}
+\label{fig:minty}
+\includegraphics[width=15cm, height=11cm]{graficos/minty.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+Cambiar el tema de bootswatch afecta tanto al HTML (a través de la barra de navegación) como al CSS, por lo que deberá reconstruir su sitio completo con la función {\bf build\_site()} para apreciar completamente los cambios. Las plantillas de Bootswatch con barras de navegación altas (por ejemplo, lux, pulso) también requieren que establezca la {\bf pkgdow-nav-height} variable bslib.
+
+\subsection{Variables bslib}
+
+En lugar de elegir un tema completo, se puede modificar las fuentes y los colores de forma individual utilizando variables {\bf bslib}. {\bf bslib} es un paquete R que envuelve sass, la herramienta que utiliza Boostrap para producir CSS desde un lenguaje especial llamado scss . La principal ventaja de scss sobre CSS es que es más programable, por lo que puede tener algunas variables {\bf bslib} clave que afectan la apariencia de muchos elementos HTML.
+
+Hay tres variables clave que afectan el color:
+\begin{enumerate}
+\item {\bf bg:} Determina el color del fondo de la página.
+\item {\bf fg:} Determina el color del texto.
+\item {\bf primary:} Establece el color del enlace y el color de desplazamiento (translúcido) en la barra de navegación y la barra lateral.
+\end{enumerate}
+
+\begin{lstlisting}{R}
+url: https://nandomh123.github.io/NPaqueteR/
+template:
+  bootstrap: 5
+  bslib:
+    bg: "#E5E5E5"
+    fg: "#2A5783"
+    primary: "#CC243C"
+    border-color: "#256D3D"
+    table-border-color: "#835581"
+    base_font: {google: "Roboto"}
+    heading_font: {google: "Roboto Slab"}
+    code_font: {google: "JetBrains Mono"}
+\end{lstlisting}
+
+Estas variables son opcionales y queda a elección del creador del sitio web, por ejemplo, en este caso en la figura \ref{fig:varbslib}, se muestra un ejemplo en el que se utilzó un color claro para el fondo de la página ( bg: "\#E5E5E5" ), un color azul para el texto ( fg: "\#2A5783" ) y color rojo para los links o enlaces ( primary: "\#CC243C" ).
+
+También se puede personalizar otros componentes configurando variables {\bf bslib} más específicas. Por ejemplo, si deseamos cambiar el color de todos los bordes, podemos configurar {\bf border-color}, al cual se le asignó un color verde ( border-color: "\#256D3D" ); si solo desea cambiar el color de los bordes de la tabla, puede configurar table-border-color, al cual se le asignó un color morado ( table-border-color: "\#835581" ).
+
+Por otro lado, podemos anular las fuentes predeterminadas utilizadas para la mayor parte del texto ( {\bf base\_font} ), para encabezados ( {\bf heading\_font} ) y para código ( {\bf code\_font} ). La forma más fácil es proporcionar el nombre de una fuente de Google, del siguiente sitio web: \url{https://fonts.google.com/} (ver figura \ref{fig:varbslib}).
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Sitio web usando variables {\bf bslib}.}
+\label{fig:varbslib}
+\includegraphics[width=15cm, height=11cm]{graficos/varbslib.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+A partir de este punto, podemos utilizar el tema bootswatch ( {\bf Minty} ) con el objetivo de seguir hablando de las funciones que tiene el paquete {\bf pkgdown}. Para ello, configuramos el archivo {\bf \_pkgdown.yml}, como se muestra en el recuadro de abajo y en la figura \ref{fig:tema}.
+
+\begin{lstlisting}{R}
+url: https://nandomh123.github.io/NPaqueteR/
+template:
+  bootstrap: 5
+  bootswatch: minty
+  bslib:
+    border-color: "#256D3D"
+    base_font: {google: "Roboto"}
+    heading_font: {google: "Roboto Slab"}
+    code_font: {google: "JetBrains Mono"}
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Sitio web usando temas bootswatch.}
+\label{fig:tema}
+\includegraphics[width=15cm, height=9cm]{graficos/tema.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+\subsection{Diseño}
+
+Se puede personalizar el contenido de la barra de navegación, el pie de página y la barra lateral de la página de inicio con los campos {\bf navbar}, {\bf footer} y {\bf sidebar}. Todos utilizan una estructura similar que define por separado el conjunto {\bf structure} y el individuo {\bf components}.
+
+
+\subsubsection{Barra de navegación}
+
+Personalizar la barra de navegación que aparece en la parte superior de la página con el campo {\bf navbar}. Se compone de dos piezas: {\bf structure}, que define el diseño general y {\bf components}, que define el aspecto de cada pieza. Esta organización facilita mezclar y combinar valores predeterminados de pkgdown con sus propias personalizaciones.
+
+Esta es la estructura por defecto que debe tener un sitio web. Además, en la figura \ref{fig:ws-barra-nave}, se muestra la estructura que va a tener nuestro sitio web final, claramente las pesatañas se encuentran bloqueadas debido a que no existen aún vínculos que se relacionen con las pestañas.
+
+\begin{lstlisting}{R}
+navbar:
+  title: ~
+  left:
+    - text: References
+      href: reference/index.html
+    - text: Tutorials
+    - text: Articles
+    - text: News
+\end{lstlisting}
+
+Hace uso de los siete componentes incorporados:
+
+\begin{enumerate}
+  \item {\bf intro: }“Get Started”, que enlaza con una viñeta con el mismo nombre que el paquete.
+  \item {\bf Reference: }Si existe algun archivo {\bf .Rd}.
+  \item {\bf Articles: }Si existen viñetas o artículos.
+  \item {\bf Tutorials: }Si hay algún tutorial.
+  \item {\bf News: }Si existe un archivo {\bf NEWS.md}.
+  \item {\bf Search: }El cuadro de búsqueda de dalguna función del paquete.
+  \item {\bf GitHub: }Un enlace al repositorio de origen (con un icono), si se puede determinar automáticamente desde el archivo DESCRIPTION.
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Estructura básica del sitio web usando temas bootswatch.}
+\label{fig:ws-barra-nave}
+\includegraphics[width=15cm, height=10cm]{graficos/ws-barra-nave.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+Además del icono de GitHub, podemos poner nuevos iconos como el de Twitter y Facebook, con las referencias establecidas mediante el siguiente código y en la figura \ref{fig:t-f}:
+
+\begin{lstlisting}{R}
+navbar:
+  title: ~
+  left:
+    - text: References
+      href: reference/index.html
+    - text: Tutorials
+    - text: Articles
+    - text: News
+
+  structure:
+    right: [github, twitter, facebook]
+  components:
+    twitter:
+      icon: fa-twitter
+      href: https://twitter.com/JonathanPallasc
+      aria-label: Twitter
+    facebook:
+      icon: fa-facebook
+      href: https://www.facebook.com/jhonathan.pallasco
+      aria-label: Facebook
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Agregación de iconos de Twitter y Facebook en la barra de navegación.}
+\label{fig:t-f}
+\includegraphics[width=15cm, height=0.7cm]{graficos/t-f.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+\subsubsection{Pie de página}
+
+Además podemos personalizar nuestro pie de página usando el campo {\bf footer}, este campo también se compone de dos piezas {\bf structure}, define el diseño general y {\bf components}, define el aspecto de cada pieza. La estructura por defecto es la siguiente, en donde podemos agregar algún aspecto:
+
+\begin{lstlisting}{R}
+footer:
+  structure:
+    left: developed_by
+    right: [built_with , legal]
+  components:
+    legal: View the **web site**.
+\end{lstlisting}
+
+Sin embargo, solo utiliza dos de los tres componentes incorporados (vere figura \ref{fig:footer}) por ejemplo:
+
+\begin{enumerate}
+\item {\bf developed\_by: }Una oración que describe a los principales autores del paquete.
+\item {\bf built\_with: }Una frase que anuncia pkgdown.
+\item {\bf package:} Nombre del paquete
+\end{enumerate}
+
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Agregación del pie de pagina del sitio web.}
+\label{fig:footer}
+\includegraphics[width=15cm, height=0.7cm]{graficos/footer.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+\subsubsection{Barra lateral}
+
+Podemos personalizar la barra lateral de la página de inicio con el campo {\bf home.sidebar}. También se compone de dos piezas: {\bf structure}, que define el diseño general y {\bf components}, que define el aspecto de cada pieza. Esta organización facilita mezclar y combinar los valores predeterminados de pkgdown con sus propias personalizaciones.La estructura por defecto es la siguiente:
+
+\begin{lstlisting}{R}
+home:
+  sidebar:
+    structure: [links, license, community, citation, authors, dev]
+\end{lstlisting}
+
+En este campo, existen 7 componentes integradas:
+
+\begin{enumerate}
+\item {\bf links: }Enlaces automáticos generados desde los campos URL y BugReports del archivo DESCRIPTION.
+\item {\bf community: }Enlaces a a .github/CONTRIBUTING.md.
+\item {\bf license: }Información de licencia
+\item {\bf citation:} Enlace a la información de citas del paquete.
+\item {\bf authors: }utores seleccionados del DESCRIPTION.
+\item {\bf dev: } Insignias de estado de desarrollo que se encuentran en README.md/ index.md.
+\item {\bf toc:}  Una tabla de contenido para el README.md (no se muestra por defecto).
+\end{enumerate}
+
+Aquí, podemos agregar links a los autores, con el campo {\bf authors}, estos autores son extraidos desde el archivo DESCRIPTION. Podemos agregar a RStudio como un autor para referenciarlo en su página oficial en el archivo DESCRIPTION, de la siguiente manera:
+
+\begin{lstlisting}{R}
+Authors@R: c(
+      person("Jonathan", "Pallasco",
+             email = "jonathan.pallasco@epn.edu.ec",
+             role = c("aut", "cre"),
+             comment = c(ORCID = "0000-0003-2524-9390")),
+			person("RStudio", role = c("cph", "fnd"))
+      )
+\end{lstlisting}
+
+Y para referenciarlos en la pagina inicial, debemos usar el campo {\bf authors}, agregando las siguientes lineas de código en el archivo {\bf \_pkgdown.yml}:
+
+\begin{lstlisting}{R}
+authors:
+  Jonathan Pallasco:
+    href: https://www.linkedin.com/in/jpallasco/
+  RStudio:
+    href: https://www.rstudio.com
+    html: <img src='https://www.tidyverse.org/rstudio-logo.svg'
+    alt='RStudio' width='72' />
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Agregación de links en la barra lateral de los autores .}
+\label{fig:linkautor}
+\includegraphics[scale=0.75]{graficos/linkautor.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+Obviamente, el nombre del autor esta referenciado con su página oficial del {\bf LinkedIn}, y el nombre del software estadístico {\bf RStudio}, esta referenciado con su página oficial, y por tanto la barra lateral de inicio queda como se muestra en la figura \ref{fig:linkautor}.
+
+
+Por otro lado para ver el funcionamiento de la componente integrada {\bf dev}, vamos construir un archivo {\bf README.md}, este proceso se lo puede realizar de varias maneras, en este caso lo vamos a construir directamente de nustra cuenta de GitHub, pues nos da una opción rápida como se muestra en la figura \ref{fig:README}.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Creación del archivo README.md del paquete.}
+\label{fig:footer}
+\includegraphics[width=15cm, height=8cm]{graficos/README.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+Simplemente debemos seguir los pasos que nos indica y obviamente debemos bajarnos los cambios en nuestro proyecto de RStudio, como se muestra en la figura \ref{fig:github_4}.
+
+{\bf NOTA:} Antes de realizar el proceso de creación del archivo, es necesario subir los cambios realizados al proyecto de GitHub.
+
+Una vez creado el archivo {\bf README.md}, podemos agreagar las siguientes lineas de código en el archivo para ver el funcionamiento de la componente integrada {\bf dev}.
+
+\begin{lstlisting}{R}
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# <span style="color: green"> About ILS package </span>
+<img src="man/figures/logo.png" align="right" alt="" width=120,
+height=120 />
+
+<!-- badges: start -->
+<a href="https://www.linkedin.com/in/jpallasco/"
+class="pkgdown-release"><img
+src="https://www.r-pkg.org/badges/version/pkgdown"
+alt="CRAN Status" /></a>
+<a href="https://github.com/Nandomh123/NPaqueteR"
+class="pkgdown-devel"><img
+src="https://github.com/r-lib/pkgdown/workflows/R-CMD-check/badge.svg"
+alt="R-CMD-check"/></a>
+<!-- badges: end -->
+\end{lstlisting}
+
+Obviamente, podemos agregrar la figura y link que se desea y se obtiene el siguiente sitio web (ver figura \ref{fig:SW-dev}).
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Agregación de la componente dev en el sitio web.}
+\label{fig:SW-dev}
+\includegraphics[width=15cm, height=9cm]{graficos/SW-dev.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+
+Ahora, ya se ve un sitio web llamativo, entonces procedemos a escribir un parrafo acerca de lo que hace el paquete. Esto lo realizamos en el archivo {\bf README.md}. En este archivo podemos utilizar comonado de {\bf HTML} para dar una mejor presentación al texto, como: justificación, color, tamaño, insertar imagenes, inserta videos tutoriales, dar saltos de linea, etc. Entonces nuestro archivo {\bf README.md} queda de la siguiente manera.
+
+\begin{lstlisting}{R}
+# <span style="color: green"> About ILS package </span>
+<img src="man/figures/logo.png" align="right" alt="" width=120,
+height=120 />
+
+<!-- badges: start -->
+<a href="https://www.linkedin.com/in/jpallasco/"
+class="pkgdown-release"><img
+src="https://www.r-pkg.org/badges/version/pkgdown"
+alt="CRAN Status" /></a>
+<a href="https://github.com/Nandomh123/NPaqueteR"
+class="pkgdown-devel"><img
+src="https://github.com/r-lib/pkgdown/workflows/R-CMD-check/badge.svg"
+alt="R-CMD-check"/></a>
+<!-- badges: end -->
+
+<br>
+<br>
+
+<p style="text-align:justify;"> Using simple functions is often
+too complicated given this circumstance, 3 functions are used:
+'Sum', 'Sum', 'Medium' to perform quick calculations without
+the need to write multiple lines of code.</p>
+
+<p style="text-align:justify;">In addition, it is a package
+that is generated from start to finish, with the aim that
+people who want to create their own package can do so quickly.</p>
+\end{lstlisting}
+
+De manera similar con todos estos cambios, nuestra página web queda como se muestra en la figura \ref{fig:web-readme}.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Sitio web con descripción del paquete.}
+\label{fig:web-readme}
+\includegraphics[width=15cm, height=9cm]{graficos/web-readme.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+En el sitio web también es una excelente idea mostrar el logotipo de su paquete. Como es se sabe la mayor parte de los paquetes es identificada mediante un logotipo.
+
+\subsubsection{Logo}
+
+Sabemos que el logotipo debe ir incluido en la página inicial del sitio web, pero existe una función que nos permite agregar un logotipo a nuestro paquete. La función {\bf use\_logo()} del paquete {\bf usethis} realiza este proceso de manera automática, simplemente debemos especificar bien la dirección en la que se encuentra el logotipo, en esta ocasión se ejecuta lo antes dicho mediante la siguiente linea de código.
+
+\begin{lstlisting}{R}
+usethis::use_logo( "C:/Users/Hp/Desktop/logo.png" )
+\end{lstlisting}
+
+{\bf Nota:} El logotipo para este paquete, es una imagen que fue descargada del navegador.
+
+Podemos observar que dentro de nuestra carpeta {\bf man}, se crea una nueva carpeta llamada {\bf figures}, en la cual se queda almacenada nuestro logotipo y además podemos almacer cualquier otra imagen. Además, nos pide como mensage que actualicemos el título de nuestro paquete en el archivo {\bf README.md} como se muestra en la figura \ref{fig:logo}.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Creación del logotipo en el archivo README.}
+\label{fig:logo}
+\includegraphics[width=15cm, height=9cm]{graficos/logo.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+Actualizado el título, podemos ver que nuestro sitio web queda con la siguiente estructura (ver figura \ref{fig:weblogo}).
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Creación del logotipo del paquete en el sitio web.}
+\label{fig:weblogo}
+\includegraphics[width=15cm, height=9cm]{graficos/weblogo.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+Teniendo pagina de inicio ya más elegante que la basica, podemos pasar a ordenar, agregar títulos y descripciones en la pestaña de {\bf Referencias}.
+
+\subsection{Referencias}
+
+La organización de las funciónes se las puede realizar en el archivo {\bf \_pkgdown.ylm}, para ello existe un campo que nos permite organizar a nuestra conveniencia las funciones y bases de datos. El campo {\bf reference} es el que nos ayuda a realizar este proceso. Para ello, agregamos las siguientes líneas de código en el archivo {\bf \_pkgdown.ylm}.
+
+\begin{lstlisting}{R}
+reference:
+  - title: "Univariate function"
+    desc: >
+      This function is used by to calcule the add for two
+      integer or decimal nambers.
+    contents:
+      - Suma
+  - title: "Multivariate function"
+    desc: >
+      This functions is used by to calcule the sum and
+      mean for the vector.
+    contents:
+      - Sumatoria
+      - Media
+  - title: "Dataset"
+    desc: >
+      Databases abouth the family is used in the package.
+    contents:
+      - Familia
+\end{lstlisting}
+
+Con esto vemos que se agregó un título y una descripción para las funciones y base datos. En este caso, se ordenó la función {\bf Suma} para datos univariantes, las funciones {\bf Sumatoria} y {\bf Media} para vectores y la base de datos {\bf Familia} que es la que se utiliza para verificar el funcionamiento de las anteriores funciones. En la figura \ref{fig:ord_func}, se puede ver la estructura del sitio web que se obtuvo.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Ordenamiento de las funciones y base de datos del paquete en el sitio web.}
+\label{fig:ord_func}
+\includegraphics[width=15cm, height=9cm]{graficos/ord-func.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
 
