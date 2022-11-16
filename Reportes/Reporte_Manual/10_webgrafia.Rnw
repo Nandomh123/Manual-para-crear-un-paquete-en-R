@@ -1,0 +1,26 @@
+%---------------------------------------------------------------------------------------------------
+\chapter[Webgrafía]{Webgrafía}
+\label{chap_Intro}
+
+En este capítulo se presenta los link de toda la webgrafía utilizada para la construcción del nuevo paquete R, así como el sitio web para el mismo.
+
+\begin{enumerate}
+  \item \url{https://r-pkgs.org/}
+  \item \url{https://cran.r-project.org/doc/manuals/R-exts.html#Rd-format}
+  \item \url{https://roxygen2.r-lib.org/articles/reuse.html#inheriting-documentation}
+  \item \url{https://rmarkdown.rstudio.com/}
+  \item \url{https://yaml.org/}
+  \item \url{https://docs.github.com/es/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax}
+  \item \url{https://pkgdown.r-lib.org/reference/build_news.html}
+  \item \url{https://pkgdown.r-lib.org/}
+  \item \url{https://bootswatch.com/}
+  \item \url{https://rstudio.github.io/bslib/}
+  \item \url{https://fonts.google.com/}
+  \item \url{https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#site-navigation}
+  \item \url{https://rdrr.io/}
+  \item \url{https://github.com/r-lib/pkgdown/blob/main/pkgdown/_pkgdown.yml#L7-L11}
+  \item \url{https://estadistica-dma.ulpgc.es/cursoR4ULPGC/16-crearPaquetes.html}
+  \item \url{https://oscarperpinan.github.io/R/Paquetes.html}
+  \item \url{https://cran.r-project.org/doc/manuals/R-exts.html}
+  \item \url{file:///C:/Users/Hp/Downloads/package-development_es.pdf}
+\end{enumerate}

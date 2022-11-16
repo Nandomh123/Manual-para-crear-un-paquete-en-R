@@ -3,7 +3,7 @@
 \label{chp_contexto}
 % %------------------------------------------------------------------------------
 
-Este capítulo se va a explicar de manera muy detallada como se crea y además se explica las componentes claves que debe contener un nuevo paquete creado en software estadístico R.
+En este capítulo se va a explicar de manera muy detallada como se crea y además se explica las componentes claves que debe contener un nuevo paquete creado en software estadístico R.
 
 Para mantener el ritmo, aprovechamos las comodidades modernas del paquete devtools y el IDE de RStudio.
 
@@ -11,7 +11,7 @@ Para mantener el ritmo, aprovechamos las comodidades modernas del paquete devtoo
 
 Puede iniciar su nuevo paquete desde cualquier sesión de R activa. No necesita preocuparse por si está en un proyecto nuevo o existente o no. Las funciones que usamos se encargan de esto.\vspace{.1cm}
 
-Cargue el paquete devtools como se muestra en el recuadro. Este paquetes la cara pública de un conjunto de paquetes que admiten varios aspectos del desarrollo de paquetes. El más obvio de estos es el paquete usethis, que verá que también se está cargando. \vspace{.1cm}
+Cargue el paquete devtools como se muestra en el recuadro. Este paquete es la cara pública de un conjunto de paquetes que admiten varios aspectos del desarrollo de paquetes. El más obvio de estos es el paquete usethis, que verá que también se está cargando. \vspace{.1cm}
 
 \begin{lstlisting}{R}
 # Instalamos el paquete devtools
@@ -39,14 +39,14 @@ Ahora empezamos creando un nuevo proyecto en nuestra consola de R Studio, llamem
 \end{figure}
 
 
-Luego procedemos a ejecutar la función {\bf create\_packages()} en la consola del nuevo proyecto para iniciar un nuevo paquete. Cabe recalcar que en esta función es neseario especificar adecadamente la dirección junto con el nombre que le vayamos a dar al paquete; es decir, se ejecuta la siguiente linea de código.
+Luego procedemos a ejecutar la función {\bf create\_packages()} en la consola del nuevo proyecto para iniciar un nuevo paquete. Cabe recalcar que en esta función es neseario especificar adecadamente la dirección junto con el nombre que le vayamos a dar al paquete; es decir, se ejecuta la siguiente línea de código.
 
 \begin{lstlisting}{R}
 # Creamos un nuevo paquete
 usethis::create_package( 'C:/Users/Hp/Desktop/PR/NPaqueteR' )
 \end{lstlisting}
 
-Ahora se nos habre una nueva sección de R, en la cual ya se ha creado nuestro proyecto llamado {\bf NPaqueteR}, como se muestra en la figura \ref{fig:NuevoPaqueteR}. Además, se puede observar que en este nuevo proyecto se construyó una lista 5 nuevos archivos los cuales se describen a continuación:
+Ahora se nos habre una nueva sección de R, en la cual ya se ha creado nuestro proyecto llamado {\bf NPaqueteR}, como se muestra en la figura \ref{fig:NuevoPaqueteR}. Además, se puede observar que en este nuevo proyecto se construyó una lista de 5 nuevos archivos los cuales se describen a continuación:
 
 \begin{enumerate}
 \item {\bf .Rbuildignore} : Enumera los archivos que debemos tener pero que no deben incluirse al compilar el paquete R desde el código fuente.
@@ -59,7 +59,7 @@ Ahora se nos habre una nueva sección de R, en la cual ya se ha creado nuestro p
 \begin{figure}[H]
 \centering
 \captionsetup{justification=centering}
-\caption{Creación del nuevo PaqueteR en R Studio}
+\caption{Creación del nuevo Paquete R en RStudio}
 \label{fig:NuevoPaqueteR}
 \includegraphics[scale=.62]{graficos/NuevoPaqueteR.png}
 \caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando \\
@@ -67,7 +67,7 @@ Ahora se nos habre una nueva sección de R, en la cual ya se ha creado nuestro p
 \end{figure}
 
 
-{\bf Nota:} Probablemente necesitemos volver a llamar {\bf library(devtools)}, porque {\bf create\_package()}, utilizo una nueva sección de R en el nuevo paquete.
+{\bf Nota:} Probablemente necesitemos volver a llamar {\bf library(devtools)}, porque {\bf create\_package()}, utilizó una nueva sección de R en el nuevo paquete.
 
 \section{Conversión del paquete en un repositorio Git}
 
@@ -82,9 +82,9 @@ usethis::use_git()
 {\bf Nota: }La función {\bf use\_git()} funciona en cualquier proyecto, independientemente de si es un paquete R.
 
 
-Nos preguntamos: ¿Qué hay de nuevo? Solo la creación de un directorio .git, que está oculto en la mayoría de los contextos, incluido el explorador de archivos de RStudio. Su existencia es evidencia de que, de hecho, hemos inicializado un repositorio de Git aquí.
+Nos preguntamos: ¿Qué hay de nuevo? Solo la creación de un directorio {\bf .git}, que está oculto en la mayoría de los contextos, incluido el explorador de archivos de RStudio. Su existencia es evidencia de que, de hecho, hemos inicializado un repositorio de Git aquí.
 
-Si está utilizando RStudio, probablemente solicitó permiso para reiniciarse en este proyecto, lo cual debe hacer. Puede hacerlo manualmente saliendo y luego reiniciando RStudio haciendo doble clic en NuevoPaqueteR.Rproj. Ahora, además de la compatibilidad con el desarrollo de paquetes, tiene acceso a un cliente Git básico en la pestaña Git del panel Entorno/Historial/ Compilación.
+Si está utilizando RStudio, probablemente solicitó permiso para reiniciarse en este proyecto, lo cual debe hacer. Puede hacerlo manualmente saliendo y luego reiniciando RStudio haciendo doble clic en {\bf NPaqueteR.Rproj}. Ahora, además de la compatibilidad con el desarrollo de paquetes, tiene acceso a un cliente Git básico en la pestaña Git del panel Entorno/Historial/ Compilación.
 
 Ahora hacemos clic en Historial (el ícono del reloj en el panel de Git) y, si dio su consentimiento, verá una confirmación inicial realizada a través de {\bf use\_git()}, como se muestra en la figura \ref{fig:git}.
 
@@ -100,9 +100,9 @@ Ahora hacemos clic en Historial (el ícono del reloj en el panel de Git) y, si d
 
 \section{Funciones y bases de datos del paquete R}
 
-Una vez construido nuestro paquete, nos preguntamos ¿Como se crean las funciones y las bases de datosque estan en nuestro paquete?
+Una vez construido nuestro paquete, nos preguntamos ¿Como se crean las funciones y las bases de datos que estan en nuestro paquete?
 
-Debemos tener en cuenta que las funciones de nuestro paquetes deben ser archivos {\bf .R} y las bases de datos deben de ser de tipo {\bf .rda}. La poblacion que a indagado en los paquetes lanzados al CRAN, deben tener claro que en un paquete no se debe mesclar las fucniones y las bases de datos, es por ello que las funciones deben ser almacenadas en repositorio {\bf R} y las bases de datos deben ser almacenadas en el repositorio {\bf Data}. Como vimos anteriormente el repositorio {\bf R} se crea automáticamente al momento de iniciar nuestro paquete. Ahora el repositorio {\bf Data} no se encuentra en nuestro paquete. Sin embargo, existen funciones del paquete {\bf devtolls} que realiza este trabajo de manera automática, más adelante se vera a detalle su funcionamiento.
+Debemos tener en cuenta que las funciones de nuestro paquetes deben ser archivos {\bf .R} y las bases de datos deben de ser de tipo {\bf .rda}. La población que a indagado en los paquetes lanzados al CRAN, deben tener claro que en un paquete no se debe mesclar las fucniones y las bases de datos, es por ello que las funciones deben ser almacenadas en directorio {\bf R} y las bases de datos deben ser almacenadas en el directorio {\bf data}. Como vimos anteriormente el directorio {\bf R} se crea automáticamente al momento de iniciar nuestro paquete. Ahora el repositorio {\bf data} no se encuentra en nuestro paquete. Sin embargo, existen funciones del paquete {\bf devtolls} que realiza este trabajo de manera automática, más adelante se verá a detalle su funcionamiento.
 
 \subsection{Creación de Funciones}
 
@@ -116,7 +116,7 @@ Debemos tener en cuenta que las funciones de nuestro paquetes deben ser archivos
 {\bf Fuente:} Software estadístico R Studio.}
 \end{figure}
 
-Como se dijo anteriormente, toda función debe estar en un archivo .R {(\bf NombreFuncion.R)} que se almacena en el directorio {\bf R/} de nuestro paquete. Existe una función del paquete {\bf usethis} que nos crea funciónes automáticamente y la almacena directamente en el directorio {\bf R} de nuestro paquete. La función {\bf use\_r()} es la que se encarga de todo este proceso ya que ayuda a crea y/o abrir un script en el repositorio {\bf R}. En esta función el parámetro importante que se debe especificar es el nombre de la función, el mismo que se usa para renombrar al scrip creado.
+Sabemos que toda función debe estar en un archivo .R {(\bf NombreFuncion.R)} que se almacena en el directorio {\bf R/} de nuestro paquete. Existe una función del paquete {\bf usethis} que nos crea funciónes automáticamente y la almacena directamente en el directorio {\bf R} de nuestro paquete. La función {\bf use\_r()} es la que se encarga de todo este proceso ya que ayuda a crear y/o abrir un script en el repositorio {\bf R}. En esta función, el parámetro importante que se debe especificar es el nombre de la función, el mismo que se usa para renombrar al scrip creado.
 
 \begin{table}[H]
 \captionsetup{justification=centering}
@@ -176,11 +176,11 @@ usethis::use_r('Media')
 
 Es evidente que se crearon nuevos scrip en el directorio R de nuestro proyecto, como se muestra en la figura \ref{fig:funciones}.
 
-Ahora vamos a escrir el código dentro de cada una de las funciones, de tal manera que cumpla las siguientes especificaciones:
+Ahora vamos a escribir el código dentro de cada una de las funciones, de tal manera que cumpla las siguientes especificaciones:
 
 \begin{enumerate}
-  \item {\bf Suma.R:} Calcula la suma de 2 números.
-  \item {\bf Sumatoria.R:} Calcula la sumatoria de $n$ números.
+  \item {\bf Suma.R:} Calcula la suma de 2 números enteros.
+  \item {\bf Sumatoria.R:} Calcula la sumatoria de un vector de $n$ números.
   \item {\bf Media.R:} Calcula la media de un vector de n números.
 \end{enumerate}
 
@@ -188,9 +188,9 @@ Notemos que en la tabla \ref{tab:funciones}, se puede observar los códigos util
 
 Es evidente que los códigos son demasiado simples, más adelante veremos la documentación que deben tener las funciones de todos los paquetes lanzados en {\bf CRAN}.
 
-\subsubsection{Verificación del funcionamiento de las funciones creeadas en el paquete R}
+\subsubsection{Verificación del funcionamiento de las funciones creadas en el paquete R}
 
-Una vez, creadas las funciones, debemos hacer la prueba de las mismas. ¿Cómo hacemos la prueba de manejo {\bf Suma()}, {\bf Sumatoria()} y {\bf Media()?} Si se tratara de un script R normal, podríamos usar RStudio para enviar la definición de la función a R Console y definir {\bf Suma()}, {\bf Sumatoria()} y {\bf Media()} en el entorno global. O tal vez llamaríamos {\bf source('R/Suma.R')}, {\bf source('R/Sumatoria.R')} o {\bf source('R/Media.R')}. Sin embargo, para el desarrollo de paquetes, devtools ofrece un enfoque más sólido.
+Una vez creadas las funciones, debemos hacer la prueba de las mismas. ¿Cómo hacemos la prueba de manejo {\bf Suma()}, {\bf Sumatoria()} y {\bf Media()?} Si se tratara de un script R normal, podríamos usar RStudio para enviar la definición de la función a R Console y definir {\bf Suma()}, {\bf Sumatoria()} y {\bf Media()} en el entorno global. O tal vez llamaríamos {\bf source('R/Suma.R')}, {\bf source('R/Sumatoria.R')} o {\bf source('R/Media.R')}. Sin embargo, para el desarrollo de paquetes, devtools ofrece un enfoque más sólido.
 
 Llamar a la función {\bf load\_all()} es lo único que se debe hacer para poner a {\bf Suma()}, {\bf Sumatoria()} y {\bf Media()} para la experimentación como se muestra en el recuadro.
 
@@ -224,7 +224,7 @@ Media(vector)
 {\bf Fuente:} Software estadístico R Studio.}
 \end{figure}
 
-En la figura \ref{fig:pruebafunciones}, se observa que se carga el paquete {\bf NPaqueteR}, por ende se cargaron las funciones antes mensionadas. Además se observa en la sonsola que estan funcionando correctamente. Ahora verifiquemos de manera manueal que esta correcto el resultado, entonces se procede a efectuar todas las operaciones antes mensionadas, lo cual coinciden con el resultado de las funciones creadas
+En la figura \ref{fig:pruebafunciones}, se observa que se carga el paquete {\bf NPaqueteR}, por ende se cargaron las funciones antes mensionadas. Además se observa en la consola que las funciones están funcionando correctamente. Ahora verifiquemos de manera manual que el resultado es correcto , entonces se procede a efectuar todas las operaciones antes mensionadas, lo cual coincide con el resultado obtenidos en consola.
 
 \begin{align*}
   &\mbox{Suma} = 10 + 21.31 = 31.31 \\\\
@@ -249,7 +249,7 @@ exists("Media", where = globalenv(), inherits = FALSE)
 {\bf Fuente:} Software estadístico R Studio.}
 \end{figure}
 
-Tenga en cuenta que {\bf load\_all()} ha hecho que las funciones esté disponible, aunque no existe en el entorno global, para ello verificamos si existen en el entorno global con la función {\bf exists()} como se muestra en el recuadro y además en la figura \ref{fig:existe}. Como se ve FALSE en las 3 funciones, entonces concluimos que las funciones no existen en el entorno global, por otro lado si fuese TRUE, entonces eso indica que todavía está usando un flujo de trabajo orientado a secuencias de comandos y obteniendo sus funciones.
+Tenga en cuenta que {\bf load\_all()} ha hecho que las funciones esté disponible, aunque no existe en el entorno global, para ello verificamos si existen en el entorno global con la función {\bf exists()} como se muestra en el recuadro y además en la figura \ref{fig:existe}. El resultado que arroja es FALSE en las 3 funciones, entonces concluimos que las funciones no existen en el entorno global, por otro lado, si fuese TRUE, entonces eso indica que todavía está usando un flujo de trabajo orientado a secuencias de comandos y obteniendo sus funciones.
 
 La {\bf load\_all()} simula el proceso de creación, instalación y conexión del paquete {\bf NPaqueteR}. A medida que su paquete acumula más funciones, algunas exportadas, otras no, algunas de las cuales se llaman entre sí, algunas de las cuales llaman a funciones de los paquetes de los que depende, {\bf load\_all()} le brinda una idea mucho más precisa de cómo se está desarrollando el paquete que las funciones de conducción de prueba definidas en el entorno mundial. También {\bf load\_all()} permite una iteración mucho más rápida que construir, instalar y adjuntar el paquete.
 
@@ -282,15 +282,15 @@ Podemos ver que no existe errores en el paquete, lo cual es bueno para nosotros 
 
 Suele ser útil incluir datos en un paquete. Si el objetivo principal de un paquete es distribuir funciones útiles, los conjuntos de datos de ejemplo facilitan la redacción de documentación excelente. Estos conjuntos de datos se pueden crear a mano para proporcionar casos de uso atractivos para las funciones del paquete.
 
-La ubicación más común para los datos del paquete es el repositorio {\bf data/}. Cada archivo que se encuentre en este directorio debe ser de tipo {\bf .rda}. La forma más fácil de lograr esto es utilizando la función {\bf  use\_data()}, en esta función es necesario especificar el nombre de la data que desea guardar, para la demostración vamos a crear una base de datos llamado familia con 3 variables:
+La ubicación más común para los datos del paquete es el directorio {\bf data/}. Cada archivo que se encuentre en este directorio debe ser de tipo {\bf .rda}. La forma más fácil de lograr esto es utilizando la función {\bf  use\_data()}, en esta función es necesario especificar el nombre de la data que desea guardar, para la demostración vamos a crear una base de datos llamado {\bf Familia} con 3 variables:
 
 \begin{enumerate}
-  \item {\bf Id:} Id de la familia.
-  \item {\bf Persona:} Cantidad de personas que conforman una familia.
+  \item {\bf Id:} Id de la familia encuestada.
+  \item {\bf Persona:} Cantidad de personas que conforman la familia.
   \item {\bf Tipo:} Tipo de Familia según la cantidad de personas que la conforman (Familia Normal, Familia Media, Familia Numerosa)
 \end{enumerate}
 
-Esta base de datos es inventada, pues posee datos aleatorios de los numeros de personas en cada familia. Además el codigo que se presenta, depende del programador, en esta ocación se usa una data table, como se muestra en el siguiente código:
+Esta base de datos es inventada, pues posee datos aleatorios del numeros de personas en cada familia. Además el código que se presenta, depende del programador, en esta ocación se usa el paquete R {\bf data.table}, como se muestra en el siguiente código:
 
 \begin{lstlisting}{R}
 # Creacion de la base de datos Familias
@@ -334,9 +334,9 @@ Ahora simplemente debemos guardarlo en el directorio {\bf data} usando la funci�
 usethis::use_data(Familia)
 \end{lstlisting}
 
-El fragmento anterior crea {\bf data/Familia.rda} dentro de la fuente del paquete {\bf NuevoPaqueteR} y agrega {\bf LazyData: true} en el archivo {\bf DESCRIPTION}. Esto hace que el objeto R  {\bf Familia} esté disponible para los usuarios de {\bf NuevoPaqueteR} a través de {\bf NuevoPaqueteR::Familia}
+El fragmento anterior crea {\bf data/Familia.rda} dentro de la fuente del paquete {\bf NPaqueteR} y agrega {\bf LazyData: true} en el archivo {\bf DESCRIPTION}. Esto hace que el objeto R  {\bf Familia} esté disponible para los usuarios de {\bf NPaqueteR} a través de {\bf NPaqueteR::Familia}
 
-En la figura \ref{fig:familia} lo antes dicho. Ahora si queremos llamar a la base de datos {\bf Familia}, debemos nuevamente cargar la función {\bf load\_all()} y podemos utilizarla a nuestra conveniencia.
+En la figura \ref{fig:familia}, se corrobora lo antes dicho. Ahora si queremos llamar a la base de datos {\bf Familia}, debemos nuevamente cargar la función {\bf load\_all()} y podemos utilizarla a nuestra conveniencia.
 
 Veamos un ejemplo de como lo podemos utilizar a la base de datos junto con las funciones antes creadas, para ello usamos el código del recuadro y también lo podemos evidenciar en la figura \ref{fig:pruebadata}.
 
@@ -368,7 +368,7 @@ Sumatoria(Familia$Persona)
 Media(Familia$Persona)
 \end{lstlisting}
 
-Se corrobora que la base de datos también esta funcionando correctamente, al igual que las funciones más adelante se hablará de la documentación de las mismas.
+Se corrobora que la base de datos también esta funcionando correctamente, al igual que las funciones. Más adelante se hablará de la documentación de las mismas.
 
 \section{Metadatos del paquete}
 
@@ -378,7 +378,7 @@ En esta sección, se da a conocer la estructura básica de estos archivos y algu
 
 \subsection{DESCRIPTION}
 
-Todo paquete debe tener un {\bf DESCRIPTION}. De hecho, es la característica que define a un paquete (RStudio y devtools consideran cualquier directorio que lo contenga {\bf DESCRIPTION} como un paquete). Para comenzar, la función {\bf usethis::create\_package()} agrega automáticamente un archivo {\bf DESCRIPTION} básico. Esto le permitirá comenzar a escribir el paquete sin tener que preocuparse por los metadatos hasta que lo necesite.
+Todo paquete debe tener un archivo {\bf DESCRIPTION}. De hecho, es la característica que define a un paquete (RStudio y devtools consideran cualquier directorio que lo contenga {\bf DESCRIPTION} como un paquete). Para comenzar, la función {\bf usethis::create\_package()} agrega automáticamente un archivo {\bf DESCRIPTION} básico. Esto le permitirá comenzar a escribir el paquete sin tener que preocuparse por los metadatos hasta que lo necesite.
 
 Este archivo utiliza un formato de  simple llamado DCF, el formato de control de Debian. Donde cada línea consta de un nombre de campo y un valor, separados por dos puntos. Cuando los valores abarcan varias líneas, deben usar sangria y además posee varios campos directos.
 
@@ -391,7 +391,7 @@ Los {\bf Title} como {\bf Description} son una fuente frecuente de rechazos por 
     \item \textcolor{iess_blue}{{\bf Description: }}Es más detallado que el título. Puede usar varias oraciones, pero está limitado a un párrafo. Si su descripción abarca varias líneas, cada línea no debe tener más de 80 caracteres de ancho. Sangría las líneas siguientes con 4 espacios.
 \end{itemize}
 
-Otas sugerencias
+Otras sugerencias
 
 \begin{itemize}
     \item Coloque los nombres de los paquetes, el software y las API de R entre comillas simples.
@@ -470,16 +470,16 @@ Es una buena idea enumerar otros lugares donde las personas pueden obtener más 
 {\bf Fuente:} Software estadístico R Studio.}
 \end{figure}
 
-Si usa la función {\bf use\_github()} para conectar su paquete local a un repositorio remoto de GitHub, se completará automáticamente URLy BugReports. Si un paquete ya está conectado a un repositorio remoto de GitHub, simplemente debemos usar la función {\bf use\_github\_links()} simplemente agregar los enlaces en el archivo {\bf DESCRIPTION}.
+Si usa la función {\bf use\_github()} para conectar su paquete local a un repositorio remoto de GitHub, se completará automáticamente URL y BugReports. Si un paquete ya está conectado a un repositorio remoto de GitHub, simplemente debemos usar la función {\bf use\_github\_links()} simplemente agregar los enlaces en el archivo {\bf DESCRIPTION}.
 
-por otro lado como aun no tenemos conectado nuestro paquete al GitHub, debes usar la función {\bf use\_github()} y automáticamente se crean los enlaces de {\bf Url} y {\bf BugReports} como se muestra a continuación.
+Por otro lado como aún no tenemos conectado nuestro paquete al GitHub, debes usar la función {\bf use\_github()} y automáticamente se crean los enlaces de {\bf Url} y {\bf BugReports} como se muestra a continuación.
 
 \begin{lstlisting}{R}
 # Obtencion de las Urls
 usethis::use_github()
 \end{lstlisting}
 
-Ademas, en la figura \ref{fig:urls}, se puede vizualizar que se crearon las Urls de {\bf Url} y {\bf BugReports} respectivamente. En adicional, se crea automaticamente el repositorio de nuestro paquete R en nuestro usuario de GitHub personal, dependiendo del cuál este conectado tu máquina. En la figura \ref{fig:github}, se observa el repositorio de del paquete R como repositorio de GitHub.
+Ademas, en la figura \ref{fig:urls}, se puede vizualizar que se crearon las Urls de {\bf Url} y {\bf BugReports} respectivamente. En adicional, se crea automáticamente el repositorio de nuestro paquete R en nuestro usuario de GitHub personal, dependiendo del cuál este conectado tu máquina. En la figura \ref{fig:github}, se observa el repositorio de del paquete R como repositorio de GitHub.
 
 \begin{figure}[H]
 \centering
@@ -498,7 +498,7 @@ Algunos otros campos del archivo {\bf DESCRIPTION} son muy utilizados y vale la 
 
 \begin{itemize}
     \item {\bf Encoding:} Describe la codificación de caracteres de los archivos en todo el paquete. Encoding: UTF-8 es ahora la codificación de texto más utilizada.
-    \item {\bf Collate:} controla el orden en que se obtienen los archivos R. Esto solo importa si su código tiene efectos secundarios; más comúnmente porque está usando S4.
+    \item {\bf Collate:} Controla el orden en que se obtienen los archivos R. Esto solo importa si su código tiene efectos secundarios; más comúnmente porque está usando S4.
     \item {\bf Version:} Realmente importante como una forma de comunicar dónde se encuentra su paquete en su ciclo de vida y cómo evoluciona con el tiempo
     \item {\bf LazyData:} Es relevante si su paquete pone los datos a disposición del usuario. Si especifica LazyData: true, los conjuntos de datos se cargan de forma diferida, lo que hace que estén disponibles de forma más inmediata, es decir, los usuarios no tienen que utilizar data().
   \end{itemize}

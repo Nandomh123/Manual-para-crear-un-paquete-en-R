@@ -59,6 +59,9 @@
 <<cap06, child='09_sitio_web.Rnw'>>=
 @
 
+<<cap07, child='10_webgrafia.Rnw'>>=
+@
+
 % <<cap06, child='06_analisis_contexto.Rnw'>>=
 % @
 

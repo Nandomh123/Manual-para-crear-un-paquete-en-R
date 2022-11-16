@@ -3,7 +3,7 @@
 \label{sitio_web}
 %--------------------------------------------------------------------------------------------------
 
-En esta sección se va explicar de manera detallada como se crea un sitio web de un paquete de R Studio, también se va a realizar una aplicación práctica del mismo paquete que fue creado anteriormente para poder ver su funcionamiento.
+En esta sección se va explicar de manera detallada como se crea un sitio web de un paquete de RStudio, también se va a realizar una aplicación práctica del mismo paquete que fue creado anteriormente para poder ver su funcionamiento.
 
 Para ello primero vamos a empezar installando nuestro paquete creado.
 
@@ -13,9 +13,9 @@ install.packages("PaqueteR")
 
 \section{Pkgdown}
 
-El objetivo de pkgdown es facilitar la creación de un sitio web de paquetes elegante y útil con un mínimo de trabajo. Puede tener un sitio web básico en funcionamiento en solo un par de minutos. Para ello, simplemente debemos utilizar las funciones {\bf use\_pkgdown()} y {\bf build\_site()}, de los paquetes {\bf usethis} y {\bf pkgdown} respectivamente. A continuación se presenta la sintaxis que se debe ocupar para crear un sitio web básico de nuestro NuevoPaqueteR creado en los anteriores capítulos.
+El objetivo de pkgdown es facilitar la creación de un sitio web de paquetes elegante y útil con un mínimo de trabajo. Puede tener un sitio web básico en funcionamiento en solo un par de minutos. Para ello, simplemente debemos utilizar las funciones {\bf use\_pkgdown()} y {\bf build\_site()}, de los paquetes {\bf usethis} y {\bf pkgdown} respectivamente. A continuación se presenta la sintaxis que se debe ocupar para crear un sitio web básico de nuestro NPaqueteR creado en los anteriores capítulos.
 
-Para esto, es necesario tener instalado el paquete {\bf pkgdown}, ya que posee funciones que nos ayudara a personalizar a nuestra conveniencia nuestra página web.
+Para esto, es necesario tener instalado el paquete {\bf pkgdown}, ya que posee funciones que nos ayudara a personalizar a nuestra conveniencia nuestro sitio web.
 
 \begin{lstlisting}{R}
 install.packages("pkgdown")
@@ -23,7 +23,7 @@ usethis::use_pkgdown()
 pkgdown::build_site()
 \end{lstlisting}
 
-Con esta funciones se crea un directorio llamado {\bf docs/}, en donde se encuentra almacenado la información que se encuentra en el archivo {\bf DESCRIPTION}  de nuestro nuevo paquete R. Además, se crea un nuevo archivo {\bf \_pkgdown.yml}, en donde podemos ordenar a nuestra conveniencia las funciones que se crearon, al igual que la base de datos. En la figura \ref{fig:pkgdown}, se muestra el proyecto de nuestro paquete en las cuales se ha creado los archivos antes mencionados.
+Con esta funciones se crea un directorio llamado {\bf docs/}, en donde se encuentra almacenado la información que se encuentra en el archivo {\bf DESCRIPTION}  de nuestro nuevo paquete R. Además, se crea un nuevo archivo {\bf \_pkgdown.yml}, en donde podemos manipular a nuestra conveniencia la estructura del sitio web, y podemos ordenar las funciones que se crearon, al igual que la base de datos. En la figura \ref{fig:pkgdown}, se muestra el proyecto de nuestro paquete en las cuales se ha creado los archivos antes mencionados.
 
 \begin{figure}[H]
 \centering
@@ -45,7 +45,7 @@ Con esta funciones se crea un directorio llamado {\bf docs/}, en donde se encuen
 {\bf Fuente:} Software estadístico R Studio.}
 \end{figure}
 
-Y despues, de un tiempo se nos crea nuestro primer web site, como se muestra en la figura \ref{fig:website}, este sitio web solo contiene información de las 3 funciones creadas y tambien de la base de datos, las cuales se van a organizar y personalizar su apariencia más adelante.
+Y despues, de un tiempo se nos crea nuestro primer sitio web, como se muestra en la figura \ref{fig:website}, este sitio web solo contiene información de las 3 funciones creadas y también de la base de datos, las cuales se van a organizar y personalizar su apariencia más adelante.
 
 Como nuestro {\bf NPaqueteR} está vinculado con nuestra cuenta de GitHub, también se recomienda configurar acciones de GitHub para crear y publicar automáticamente su sitio, para ello usamos la función {\bf use\_pkgdown\_github\_pages()}, esto nos ayuda a generar una url, que nos da la ubicación final del sitio web. Su sintaxis se muestra en el recuadro y en la figura \ref{fig:urlwebsite}, se muestra como se genera la dirección final del sitio web en nuestro archivo {\bf \_pkgdown.yml}
 
@@ -94,7 +94,7 @@ Ahora simplemente, podemos subir todos los cambios realizados hasta el momento a
 \begin{figure}[H]
 \centering
 \captionsetup{justification=centering}
-\caption{{\bf Paso3}: Verificación de los cambios se realizaron.}
+\caption{{\bf Paso3}: Verificación de que los cambios se realizaron.}
 \label{fig:github_3}
 \includegraphics[width=14cm, height=8cm]{graficos/github_3.png}
 \caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
@@ -106,7 +106,7 @@ Ahora simplemente, podemos subir todos los cambios realizados hasta el momento a
 \begin{figure}[H]
 \centering
 \captionsetup{justification=centering}
-\caption{{\bf Paso4}: Descargamos los cambios que se realizo por otro persona}
+\caption{{\bf Paso4}: Descargamos los cambios que se realizó por otro persona}
 \label{fig:github_4}
 \includegraphics[width=14cm, height=8cm]{graficos/github_4.png}
 \caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
@@ -127,7 +127,7 @@ Ahora simplemente, podemos subir todos los cambios realizados hasta el momento a
 
 \end{enumerate}
 
-Una vez realizado todo este proceso, nuestro sitio web del paquete se encuentra publicado en nuestra cuenta de GitHub, el cual lo podemos visualizar en el siguiente link \url{https://nandomh123.github.io/NPaqueteR/}. Claramente el sitio web del {\bf NPaqueteR} es básica.
+Una vez realizado todo este proceso, nuestro sitio web del paquete se encuentra publicado en nuestra cuenta de GitHub, el cual lo podemos visualizar en el siguiente link \url{https://nandomh123.github.io/NPaqueteR/}. Claramente el sitio web del {\bf NPaqueteR} es básico.
 
 
 \section{Personaliza tu sitio}
@@ -345,7 +345,7 @@ Sin embargo, solo utiliza dos de los tres componentes incorporados (vere figura 
 
 \subsubsection{Barra lateral}
 
-Podemos personalizar la barra lateral de la página de inicio con el campo {\bf home.sidebar}. También se compone de dos piezas: {\bf structure}, que define el diseño general y {\bf components}, que define el aspecto de cada pieza. Esta organización facilita mezclar y combinar los valores predeterminados de pkgdown con sus propias personalizaciones.La estructura por defecto es la siguiente:
+Podemos personalizar la barra lateral de la página de inicio con el campo {\bf home.sidebar}. También se compone de dos piezas: {\bf structure}, que define el diseño general y {\bf components}, que define el aspecto de cada pieza. Esta organización facilita mezclar y combinar los valores predeterminados de pkgdown con sus propias personalizaciones. La estructura por defecto es la siguiente:
 
 \begin{lstlisting}{R}
 home:
@@ -357,10 +357,10 @@ En este campo, existen 7 componentes integradas:
 
 \begin{enumerate}
 \item {\bf links: }Enlaces automáticos generados desde los campos URL y BugReports del archivo DESCRIPTION.
-\item {\bf community: }Enlaces a a .github/CONTRIBUTING.md.
-\item {\bf license: }Información de licencia
+\item {\bf community: }Enlaces a .github/CONTRIBUTING.md.
+\item {\bf license: }Información de licencia.
 \item {\bf citation:} Enlace a la información de citas del paquete.
-\item {\bf authors: }utores seleccionados del DESCRIPTION.
+\item {\bf authors: }Autores seleccionados del DESCRIPTION.
 \item {\bf dev: } Insignias de estado de desarrollo que se encuentran en README.md/ index.md.
 \item {\bf toc:}  Una tabla de contenido para el README.md (no se muestra por defecto).
 \end{enumerate}
@@ -402,7 +402,7 @@ authors:
 Obviamente, el nombre del autor esta referenciado con su página oficial del {\bf LinkedIn}, y el nombre del software estadístico {\bf RStudio}, esta referenciado con su página oficial, y por tanto la barra lateral de inicio queda como se muestra en la figura \ref{fig:linkautor}.
 
 
-Por otro lado para ver el funcionamiento de la componente integrada {\bf dev}, vamos construir un archivo {\bf README.md}, este proceso se lo puede realizar de varias maneras, en este caso lo vamos a construir directamente de nustra cuenta de GitHub, pues nos da una opción rápida como se muestra en la figura \ref{fig:README}.
+Por otro lado para ver el funcionamiento de la componente integrada {\bf dev}, vamos construir un archivo {\bf README.md}, este proceso se lo puede realizar de varias maneras, en este caso lo vamos a construir directamente de nuestra cuenta de GitHub, pues nos da una opción rápida como se muestra en la figura \ref{fig:README}.
 
 \begin{figure}[H]
 \centering
@@ -452,7 +452,7 @@ Obviamente, podemos agregrar la figura y link que se desea y se obtiene el sigui
 \end{figure}
 
 
-Ahora, ya se ve un sitio web llamativo, entonces procedemos a escribir un parrafo acerca de lo que hace el paquete. Esto lo realizamos en el archivo {\bf README.md}. En este archivo podemos utilizar comonado de {\bf HTML} para dar una mejor presentación al texto, como: justificación, color, tamaño, insertar imagenes, inserta videos tutoriales, dar saltos de linea, etc. Entonces nuestro archivo {\bf README.md} queda de la siguiente manera.
+Ahora, ya se ve un sitio web llamativo, entonces procedemos a escribir un parrafo acerca de lo que hace el paquete. Esto lo realizamos en el archivo {\bf README.md}. En este archivo podemos utilizar comandos de {\bf HTML} para dar una mejor presentación al texto, como: justificación, color, tamaño, insertar imagenes, inserta videos tutoriales, dar saltos de linea, etc. Entonces nuestro archivo {\bf README.md} queda de la siguiente manera.
 
 \begin{lstlisting}{R}
 # <span style="color: green"> About ILS package </span>
@@ -495,11 +495,11 @@ De manera similar con todos estos cambios, nuestra página web queda como se mue
 {\bf Fuente:} Software estadístico R Studio.}
 \end{figure}
 
-En el sitio web también es una excelente idea mostrar el logotipo de su paquete. Como es se sabe la mayor parte de los paquetes es identificada mediante un logotipo.
+En el sitio web también es una excelente idea mostrar el logotipo de su paquete. Como se sabe la mayor parte de los paquetes es identificada mediante un logotipo.
 
 \subsubsection{Logo}
 
-Sabemos que el logotipo debe ir incluido en la página inicial del sitio web, pero existe una función que nos permite agregar un logotipo a nuestro paquete. La función {\bf use\_logo()} del paquete {\bf usethis} realiza este proceso de manera automática, simplemente debemos especificar bien la dirección en la que se encuentra el logotipo, en esta ocasión se ejecuta lo antes dicho mediante la siguiente linea de código.
+Sabemos que el logotipo debe ir incluido en la página inicial del sitio web, pero existe una función que nos permite agregar un logotipo a nuestro paquete. La función {\bf use\_logo()} del paquete {\bf usethis} realiza este proceso de manera automática, simplemente debemos especificar bien la dirección en la que se encuentra el logotipo, en esta ocasión se ejecuta lo antes dicho mediante la siguiente línea de código.
 
 \begin{lstlisting}{R}
 usethis::use_logo( "C:/Users/Hp/Desktop/logo.png" )
@@ -531,7 +531,7 @@ Actualizado el título, podemos ver que nuestro sitio web queda con la siguiente
 {\bf Fuente:} Software estadístico R Studio.}
 \end{figure}
 
-Teniendo pagina de inicio ya más elegante que la basica, podemos pasar a ordenar, agregar títulos y descripciones en la pestaña de {\bf Referencias}.
+Teniendo una página de inicio más elegante que la basica, podemos pasar a ordenar, agregar títulos y descripciones en la pestaña de {\bf Referencias}.
 
 \subsection{Referencias}
 
@@ -571,4 +571,340 @@ Con esto vemos que se agregó un título y una descripción para las funciones y
 {\bf Fuente:} Software estadístico R Studio.}
 \end{figure}
 
+ A continuación vamos a ver lo que son las vignettes o más conocidas como las viñetas.
+
+ \section{Vigenettes}
+
+Los vignettes no son nada más que las viñetas que se relacionan con las pestañas de {\bf Tutorials} y {\bf Articles}.
+
+Una viñeta es una guía de formato largo para su paquete. La documentación de funciones es excelente si conoce el nombre de la función que necesita, pero de lo contrario es inútil. Una viñeta es como un capítulo de un libro o un artículo académico: puede describir el problema que su paquete está diseñado para resolver y luego mostrarle al lector cómo resolverlo.
+
+En esta sección, vamos a utilizar {\bf RMarkdown} para escribir nuestras viñetas. Si aún no está familiarizado con {\bf RMarkdown}, se puede consultar información en la siguiente página web \url{https://rmarkdown.rstudio.com/}.
+
+\subsection{Flujo de trabajo de las viñetas}
+
+Crear una viñeta es demasiado simple, podemos utilizar la función {\bf use\_vignette()} del paquete R {\bf usethis}, los parámetros que debemos especificar en esta función es el nombre que va a recibir el archivo .Rd y el títuto que le vamos a poner al archivo {\bf .Rd}. Si empezamos creando nuestra primera viñeta, la cual vamos a llamar {\bf Tutorial} y el título que le asignamos es {\bf Tutorial para crear un nuevo paquete R}. La sintaxis que utilizamos es la siguiente:
+
+\begin{lstlisting}{R}
+usethis::use_vignettes( "Tutorial",
+                        "Tutorial para crear un nuevo paquete R")
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Creación de la viñeta para la pestaña tutorial del sitio web.}
+\label{fig:vTuto}
+\includegraphics[width=15cm, height=9cm]{graficos/vTuto.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+Esta orden de código, realiza 3 actividades simultaneamente :
+
+\begin{enumerate}
+  \item Crear un vignettes/directorio.
+  \item Agregue las dependencias necesarias a DESCRIPTION (es decir, agrega knitr a los campos Suggestsy y VignetteBuilder).
+  \item Crea un proyecto de una viñeta, vignettes/Tutorial.Rmd.
+\end{enumerate}
+
+La ejecución de estas actividades se puede verificar en la figura \ref{fig:vTuto}.
+
+\subsection{Metadatos}
+
+Las primeras líneas de la viñeta contienen metadatos importantes. La plantilla predeterminada contiene la siguiente información:
+
+\begin{lstlisting}{R}
+---
+title: "Tutorial para crear un nuevo paquete R"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Tutorial para crear un nuevo paquete R}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+\end{lstlisting}
+
+Estos metadatos están escritos en formato {\bf yaml}, un formato diseñado para ser legible tanto por humanos como por computadora. Los conceptos básicos de la sintaxis son muy parecidos al archivo DESCRIPTION, donde cada línea consta de un nombre de campo, dos puntos y luego el valor del campo. La característica especial de {\bf YAML} es que estamos usando aquí el símbolo matemático {\bf MAYOR}. Este símbolo indica que las siguientes líneas de texto son texto sin formato y no deben usar ninguna característica especial de {\bf YAML}.
+
+Los campos mas importantes son:
+
+\begin{enumerate}
+  \item {\bf title y description: }Si cambia el título, también debe cambiar el que se describe en {\bf VignetteIndexEntry} .
+  \item {\bf author: }No se usa este campo a menos que el autor de la viñeta sea diferente al autor del paquete.
+  \item {\bf date: }Tampoco se recomienda usar este campo, ya que es muy fácil olvidarse de actualizar. Podría usar {\bf Sys.date()}, pero esto muestra cuándo se creó la viñeta, que puede ser muy diferente a cuando se actualizó por última vez.
+  \item {\bf output:} Esto le dice a Rmarkdown qué formateador de salida usar. Hay muchas opciones que son útiles para los informes regulares (incluidos html, pdf, presentaciones de diapositivas, etc.), pero {\bf rmarkdown::html\_vignette} se han diseñado específicamente para funcionar bien dentro de los paquetes.
+  \item {\bf vignette:} Contiene un bloque especial de metadatos que necesita R. Aquí puede ver el legado de las viñetas de \LaTeX(): los metadatos se parecen a los comandos de \LaTeX(). Deberá modificar el {\bf VignetteIndexEntry} para proporcionar el título de su viñeta como le gustaría que apareciera en el índice de viñetas. Las otras dos líneas dice a R que use {\bf knitr} para procesar el archivo, y que el archivo está codificado en UTF-8.
+\end{enumerate}
+
+También incluye bloque para configurar algunas opciones estándar:
+
+\begin{lstlisting}{R}
+```{r, include = FALSE}
+knitr::opts_chunk$set( collapse = TRUE, comment = "#>" )
+```
+\end{lstlisting}
+
+Al agregar viñetas a nuestro sitio web, debemos transmitir información relevante acerca de nuestro paquete, para que los usuarios puedan informarse.
+
+\subsection{Consejos}
+
+Al escribir una viñeta, le estamos enseñando a alguien cómo usar el paquete. Debemos ponernos en el lugar de los lectores y adoptar una “mente de principiante”. Esto puede ser difícil porque es difícil olvidar todo el conocimiento que ya has interiorizado. Por esta razón, consideramos que la enseñanza presencial es una forma realmente útil de obtener retroalimentación. Inmediatamente te enfrentas a lo que has olvidado que solo tú sabes.
+
+Un efecto secundario útil de este enfoque es que le ayuda a mejorar su código. Te obliga a volver a ver el proceso de incorporación inicial y a apreciar las partes que son difíciles. Nuestra experiencia es que explicar cómo funciona el código a menudo revela algunos problemas que necesitan solución.
+
+Escribir una viñeta también es un buen descanso de la codificación. Escribir parece usar una parte del cerebro diferente a la programación, así que si estás harto de programar, intenta escribir un poco.
+
+\subsection{Publicación científica}
+
+Las viñetas también pueden ser útiles si desea explicar los detalles de su paquete. Por ejemplo, si implementó un algoritmo estadístico complejo, es posible que desee describir todos los detalles en una viñeta para que los usuarios de su paquete puedan comprender lo que sucede debajo del capó y estar seguros de que implementó el algoritmo correctamente. En este caso, también podría considerar enviar su viñeta a Journal of Statistical Software o The R Journal . Ambas revistas son solo electrónicas y revisadas por pares. Los comentarios de los revisores pueden ser muy útiles para mejorar su paquete y viñeta.
+
+Si solo desea proporcionar algo muy ligero para que la gente pueda citar fácilmente su paquete, también puede considerar el Journal of Open Source Software . Esta revista tiene un proceso de envío y revisión particularmente rápido, y es donde publicamos " Bienvenido a Tidyverse ", un artículo que escribimos para que la gente pudiera tener un solo artículo para citar y todos los autores de Tidyverse obtuvieran algún crédito académico.
+
+
+\subsection{Contenido de las vignettes}
+
+Una ves explicada como se debe crear una viñeta, pasamos a agregar contenido en cada una de las pestañas de nuestro sitio web, vamos a ser breves en el contenido de cada viñeta. Agregaremos videos, documentos pdf's, imagenes y texto segun corresponda en cada viñeta.
+
+\subsubsection{Vignettes Tutorial}
+
+Esta viñeta fue construida a inicios de la presente sección, aquí utilizamos la función {\bf use\_vignettes()} en la cual se especificó adecuadamente el nombre y título de la viñeta. Ahora surge la pregunta ¿Como se enlaza las viñetas en nuestro sitio web?. Es muy fácil responder esta pregunta, pues al momento de construir la viñeta {\bf .Rd}, automáticamente se crea un archivo {\bf .html} con el mismo nombre.
+
+Así, dentro de la carpeta {\bf docs} se crea una nueva carpeta llamada {\bf articles}, el cual almacena el archivo {\bf Tutorial.html}, entonces simplemente debemos referenciarlo a la pestaña que queremos que se enlace nuestra viñeta. En este caso necesitamos enlazar el archivo {\bf Tutorial.html} con la pestaña {\bf Tutorials}
+
+Cabe recalcar que nuestra viñeta esta vacía, simplemente esta acompañada del título que se le asignó, entonces para enlazar debemos agregar las siguientes lineas de código en el archivo {\bf \_pkgdown.yml}. Este enlace lo debemos agregar en el campo de {\bf navbar}, el cual hace referencia a la barra de navegación.
+
+\begin{lstlisting}{R}
+navbar:
+  title: ~
+  left:
+    - text: References
+      href: reference/index.html
+    - text: Tutorials
+      href: articles/Tutorial.html
+    - text: Articles
+    - text: News
+\end{lstlisting}
+
+En la figura \ref{fig:vi-tuto}, se puede observar la estructura de la viñeta {\bf Tutorial} referenciada a la pestaña {\bf Tutorials} de la barra de navegación.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Sitio web con viñeta pestaña tutorial de la barra de navegación.}
+\label{fig:vi-tuto}
+\includegraphics[width=15cm, height=9cm]{graficos/vi-tuto.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+
+Una vez enlazada la viñeta, podemos empezar a escribir código, texto, insertar videos, imagenes en la viñeta. Empecemos creando una función con código R, que nos permita dar color al texto. Como se dijo, en una viñeta es archivo de {\bf Rmarkdown}, entonces debemos usar los {\bf chunk} para agregar códigos. El código que se usa es el siguiente
+
+\begin{lstlisting}{R}
+```{r include=FALSE}
+colorize <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{%s}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color,
+      x)
+  } else x
+}
+```
+\end{lstlisting}
+
+La función {\bf colorize} nos permite dar color al texto. Esta función no se va a ver reflejado en la viñeta, pero si se va a ejecutar. por ejemplo podemos agregar un subtitulo ("Tutorial Video") de color azul en nuestra viñeta.
+
+\begin{lstlisting}{R}
+# `r colorize("Tutorial Video","blue")`
+\end{lstlisting}
+
+Además podemos agregar texto que lo podemos justificar con ayuda códigos html, por ejemplo, vamos a agregar el siguiente texto.
+
+\begin{lstlisting}{R}
+<p style="text-align:justify;"> This vignette will present the
+main features that allow you to add vignettes to a website
+from an R package.</p>
+\end{lstlisting}
+
+También podemos agregar un video tutorial, esto se puede agregar usando sentencias o códigos html.
+
+\begin{lstlisting}{R}
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/xN8SgffumrM"
+title="YouTube video player" frameborder="0"
+allow="accelerometer; autoplay; clipboard-write;
+encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen></iframe>
+\end{lstlisting}
+
+Finalmente, nuestra viñeta  va a tener el siguiente contenido:
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Contenido de la viñeta Tutorial.}
+\label{fig:viñeta-tutorial}
+\includegraphics[width=11cm, height=12cm]{graficos/viñeta-tutorial.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+Ahora simplemente debemos correr nuestro sitio web, el cual tiene una apariencia como se muestra en la figura \ref{fig:ws_vt}.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Sitio web con contenido en la viñeta Tutorial de la barra de navegación.}
+\label{fig:ws_vt}
+\includegraphics[width=15cm, height=9cm]{graficos/ws_vt.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+
+\subsubsection{Vignettes Articles}
+
+Como ya sabemos que una viñeta también es un artículo científico, entonces es necesario añadir archivos pdf o simplemente links se los artículos científicos. Por ende, en esta viñeta se muestra como podemos agregar esta información.
+
+Para ello, nuevamente creamos nuestra viñeta, especificando el nombre y el título que le vamos a dar. La viñeta se llamará {\bf Articles} y le asignamos como título {\bf Artículos cientificos acerca de como construir un paquete R}.
+
+En este caso, para poder subir el archivo pdf, necesariamente el documento debe encontrarse almacenado en carpeta {\bf vignettes} del proyecto. Para este caso, en esta dirección vamos a crear una nueva carpeta con el nombre de {\bf Articles}, donde estará almacenado nuestro pdf.
+
+Empezamos creando la viñeta
+
+\begin{lstlisting}{R}
+usethis::use_vignettes( "Articles",
+                        "Articulos cientificos acerca de
+                         como construir un paquete R")
+\end{lstlisting}
+
+Una vez creada, nuevamente le referenciamos con la pestaña {\bf Articles} de la barra de navegación.
+
+\begin{lstlisting}{R}
+navbar:
+  title: ~
+  left:
+    - text: References
+      href: reference/index.html
+    - text: Tutorials
+      href: articles/Tutorial.html
+    - text: Articles
+      href: articles/Articles.html
+    - text: News
+\end{lstlisting}
+
+Ahora agregamos un título de color verde y archivo pdf mediante la siguiente línea de código, para realizar esta actividad también es necesario crear la función {\bf colorize}.
+
+\begin{lstlisting}{R}
+```{r include=FALSE}
+colorize <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{%s}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color,
+      x)
+  } else x
+}
+```
+# `r colorize("How to create an R package","green")`
+<object data="Articles/CmocrearpaquetesenR.pdf"
+width=775, height=550></object>
+\end{lstlisting}
+
+También necesitamos crear un link de cualquier otro artículo y para finalizar vamos a subir una imagen. La imagen que deseamos subir debe estar almacenada en la carpeta {\bf figures} que se encuentra dentro de la carpeta {\bf man}, entonces es obligatorio guardar la imagen en la dirección correcta.
+
+Luego simplemente debemos ocupar código html y Rmarkdown para realizar este proceso. Esto se lleva a cabo con la siguiente línea de código.
+
+\begin{lstlisting}
+# `r colorize("Link and Image","green")`
+## `r colorize("Link","blue")`
+https://oscarperpinan.github.io/R/Paquetes.pdf
+## `r colorize("Image","blue")`
+<center>![](../man/figures/Imagen.jpg){width=300 height=450}</center>
+\end{lstlisting}
+
+Con todas estas agregaciones, nuestra viñeta queda como se muestra en la figura \ref{fig:v-article}.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Contenido de la viñeta Articles.}
+\label{fig:v-article}
+\includegraphics[width=13cm, height=15cm]{graficos/v-article.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+y nuestro sitio web se de como esta en la figura \ref{fig:ws-va} es el siguiente.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Sitio web con contenido en la viñeta Article de la barra de navegación.}
+\label{fig:ws-va}
+\includegraphics[width=15cm, height=9cm]{graficos/ws-va.png}
+\includegraphics[width=15cm, height=9cm]{graficos/ws-va1.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+Ahora nuestro sitio web ya tiene viñetas y se ve elegante. Simplemente nos faltaría agregar información en la pestaña de New.
+
+\subsection{NEWS.md}
+
+El archivo {\bf README.md} está dirigido a nuevos usuarios. El {\bf NEWS.md} está dirigido a usuarios existentes: debe enumerar todos los cambios de API en cada versión. Hay una serie de formatos que puede usar para las noticias del paquete, pero se recomiendo {\bf NEWS.md}. Está bien respaldado por GitHub, permitido por CRAN y es fácil de reutilizar para otros formatos.
+
+Organice su NEWS.md de la siguiente manera:
+
+\begin{enumerate}
+\item Utilice un encabezado de nivel superior para cada versión: por ejemplo  \# mypackage 1.0, . La versión más reciente debe ir en la parte superior.
+\item Cada cambio debe incluirse en una lista con viñetas. Si tiene muchos cambios, es posible que desee dividirlos usando subtítulos, \#\# Major changesetc. \#\# Bug fixesPor lo general, me quedo con una lista simple hasta justo antes de lanzar el paquete, cuando lo reorganizo en secciones, si es necesario. Es difícil saber de antemano exactamente qué secciones necesitará.
+\item Si un elemento está relacionado con un problema en GitHub, incluya el número de problema entre paréntesis, por ejemplo,  (\#10). Si un elemento está relacionado con una solicitud de extracción, incluya el número de la solicitud de extracción y el autor, p  (\#101, @hadley). Hacer esto facilita la navegación a los problemas relevantes en GitHub.
+
+\end{enumerate}
+
+El principal desafío {\bf NEWS.md} es adquirir el hábito de notar un cambio a medida que realiza un cambio.
+
+Ahora para empezar a ocupar este archivo vamos hacer uso de la función {\bf use\_news\_md()}, para dar a conocer los cambios que se realizaron al paquete. En este caso como es un nuevo paquete este archivo va a estar vacio.
+
+Ahora necesitamos referenciarlo en la barra de navegación pestana {\bf News}, esto se lo realiza agregado las siguientes lineas de código en el archivo {\bf \_pkgdown.yml}
+
+\begin{lstlisting}
+    - text: References
+      href: reference/index.html
+    - text: Tutorials
+      href: articles/Tutorial.html
+    - text: Articles
+      href: articles/Articles.html
+    - text: News
+      href: news/index.html
+\end{lstlisting}
+
+Y nuestro sitio web queda como se muestra en la figura \ref{fig:news}.
+
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\caption{Creación y referencia del archivo News.md de la barra de navegación.}
+\label{fig:news}
+\includegraphics[width=15cm, height=9cm]{graficos/news.png}
+\caption*{\scriptsize {\bf Elaborado:} Pallasco Catota Jonathan Fernando. \\
+{\bf Fuente:} Software estadístico R Studio.}
+\end{figure}
+
+Seguido de esto podemos agregar información en la pestaña de News.m. Para su demostración vamos a agregar las siguientes lineas de código en el archivo {\bf NEWS.md}.
+
+\begin{lstlisting}
+# NPaqueteR 0.0.0.9000
+
+* Added a website for the package (with pkgdown).
+
+* Added 'README.md', 'NEWS.md' and '_pkgdown.yml'.
+
+* Added some vignettes (pkgdown articles)
+\end{lstlisting}
+
+Ahora nuestro sitio web se encuentra completo y lo podemos visualizar de mejor manera en la siguiente página (\url{nandomh123.github.io/NPaqueteR/}). Si necesitamos agregar alguna otra información en las viñetas podemos consultar la información en la siguiente sitio web del paquete R ILS (\url{mflores72000.github.io/ILS/}).
 

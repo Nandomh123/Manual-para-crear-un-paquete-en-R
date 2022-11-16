@@ -1,21 +1,21 @@
 %---------------------------------------------------------------------------------------------------
-\chapter[Documentación de las funciones y bases de datos]{Documentación de las funciones y bases de datos}
+\chapter[Documentación de las funciones y bases de datos]{Documentación de las funciones y base de datos}
 \label{documentacion}
 %--------------------------------------------------------------------------------------------------
 
-En este capitulo se aprenderá sobre la documentación de funciones y bases de datos, a la que se accede mediante {\bf ?} o {\bf help()}. Base R proporciona una forma estándar de documentar un paquete donde cada función y bases de datos se documenta en un tema, un archivo {\bf .Rd} en el directorio {\bf man/}. Estos archivos usan una sintaxis personalizada, basada libremente en LaTeX, que se procesan en HTML, texto sin formato o pdf, según sea necesario, para su visualización.
+En este capítulo se aprenderá sobre la documentación de funciones y base de datos. A las mismas se accede mediante {\bf ?} o {\bf help()}. Base R proporciona una forma estándar de documentar un paquete donde cada función y base de datos se documenta en un tema, un archivo {\bf .Rd} en el directorio {\bf man/}. Estos archivos usan una sintaxis personalizada, basada libremente en \LaTeX(), que se procesan en HTML, texto sin formato o pdf, según sea necesario, para su visualización.
 
 \section{Documentación de las funciones}
 
-En esta sección nos centraremos en la documentación de funciones, pero las mismas ideas se aplican a la documentación de conjuntos de datos, clases y genéricos y paquetes. Para ello se va a ser uso del paquete de R {\bf roxigen2}.
+En esta sección nos centramos en la documentación de funciones, pero las mismas ideas se aplican a la documentación de conjuntos de datos, clases y paquetes. Para ello se va a ser uso del paquete de R {\bf roxigen2}.
 
-\subsection{Conceptos basicos del paquete R {\bf roxigen2}}
+\subsection{Conceptos básicos del paquete R {\bf roxigen2}}
 
 Para comenzar, trabajaremos con el flujo de trabajo básico de {\bf roxigen2} y analizaremos la estructura general de los comentarios de {\bf roxigen2} que se organizan en bloques y etiquetas.
 
 \subsubsection{El flujo de trabajo de la documentación}
 
-Comenzamos el flujo de trabajo de la documentación agregando comentarios de {\bf roxygen} encima de su función. Los comentarios de roxygen son comentarios que comienzan con comilla simple {\bf '}. A continuación se presenta unu ejemplo de una  función con comentarios roxigen.
+Comenzamos el flujo de trabajo de la documentación agregando comentarios de {\bf roxygen} encima de su función. Los comentarios de roxygen son comentarios que comienzan con comilla simple {\bf '}. A continuación se presenta un ejemplo de una  función con comentarios roxigen.
 
 \begin{lstlisting}{R}
 #' Add together two numbers
@@ -33,7 +33,7 @@ add <- function(x, y) {
 
 \subsubsection{Comentarios, bloques y etiquetas de roxygen2}
 
-Como ya sabemos la estructura del flujo de trabajo básico, hablemos un poco más sobre la sintaxis. Los comentarios de {\bf roxygen2} comienzan con {\bf \#'} y todos los comentarios de {\bf roxygen2}  que preceden a una función se llaman colectivamente un bloque . Los bloques se dividen en etiquetas , que parecen {\bf @tagName} y  {\bf @tagValue}, y el contenido de una etiqueta se extiende desde el final del nombre de la etiqueta hasta el comienzo de la siguiente etiqueta. Un bloque puede contener texto antes de la primera etiqueta que se llama {\bf introducción} . Por defecto, cada bloque generará un único tema de documentación , es decir, un archivo {\bf .Rd} en el directorio {\bf man/}.
+Como ya sabemos la estructura del flujo de trabajo básico, hablemos un poco más sobre la sintaxis. Los comentarios de {\bf roxygen2} comienzan con {\bf \#'} y todos los comentarios de {\bf roxygen2}  que preceden a una función se llaman colectivamente un bloque . Los bloques se dividen en etiquetas, que parecen {\bf @tagName} y  {\bf @tagValue}, y el contenido de una etiqueta se extiende desde el final del nombre de la etiqueta hasta el comienzo de la siguiente etiqueta. Un bloque puede contener texto antes de la primera etiqueta que se llama {\bf introducción} . Por defecto, cada bloque generará un único tema de documentación; es decir, un archivo {\bf .Rd} en el directorio {\bf man/}.
 
 A continuación presentamos algunas de las etiquetas más utilizadas: {\bf @param}, {\bf @return},  {\bf @seealso}, {\bf @example},  {\bf @export}, etc.
 
@@ -179,7 +179,7 @@ Suma <- function(a,b){
 ##' @examples
 ##' library(NPaqueteR)
 ##' data(Familia)
-##' Sumatoria(Familia$Personas)
+##' Sumatoria(Familia$Persona)
 
 Sumatoria <- function(vector){
   n <- length(vector)
@@ -213,7 +213,7 @@ Sumatoria <- function(vector){
 ##' @examples
 ##' library(NPaqueteR)
 ##' data(Familia)
-##' Media(Familia$Personas)
+##' Media(Familia$Persona)
 
 Media <- function(vector){
   n <- length(vector)
@@ -240,9 +240,9 @@ devtools::document()
 roxygen2::roxygenise
 \end{lstlisting}
 
-En la figura \ref{fig:Archivos_Rd}, se puede vizualizar que se generaron 3 nuevos archivos en el directorio {\bf man/}, en el cual posee un código idéntico a {\bf LaTex} y su salida es un archivo {\bf html}. Este archivo html, sirve para obtener ayuda de la función que queremos utilizar del paquete, es importante tener una buena documentación para darnos cuenta que hace nuestra funcion o las de otros paquetes de R.
+En la figura \ref{fig:Archivos_Rd}, se puede visualizar que se generaron 3 nuevos archivos en el directorio {\bf man/}, en el cual posee un código idéntico a {\bf \LaTeX()} y su salida es un archivo {\bf html}. Este archivo html, sirve para obtener ayuda de la función que queremos utilizar del paquete, es importante tener una buena documentación para darnos cuenta que hace nuestra función o las de otros paquetes de R.
 
-Por otro lado, en la figura \ref{fig:NAMESPACE}, se observa que en el archivo {\bf NAMESPACE }, se generan automaticamente las funciones que se van a exportar para que puedan utilizar los usuarios al cargar el nuevo paquete R
+Por otro lado, en la figura \ref{fig:NAMESPACE}, se observa que en el archivo {\bf NAMESPACE }, se generan automáticamente las funciones que se van a exportar para que puedan utilizar los usuarios al cargar el nuevo paquete R
 
 \begin{figure}[H]
 \centering
@@ -254,7 +254,7 @@ Por otro lado, en la figura \ref{fig:NAMESPACE}, se observa que en el archivo {\
 {\bf Fuente:} Software estadístico R Studio.}
 \end{figure}
 
-obviamente, utilizamos simplemente algunas etiquetas importantes, si se desea obtener información acerca de todas las etiquetas que se pueden utilizar, podemos revisar en la documentación de las funciones, en la siguiente página web, \url{https://r-pkgs.org/}.
+Obviamente, utilizamos simplemente algunas etiquetas importantes, si se desea obtener información acerca de todas las etiquetas que se pueden utilizar, podemos revisar en la documentación de las funciones, en la siguiente página web, \url{https://r-pkgs.org/}.
 
 \section{Documentación de las bases de datos}
 
@@ -311,7 +311,7 @@ Ahora se procede a utilizar nuevamente las funciones {\bf document()} y {\bf rox
 {\bf Fuente:} Software estadístico R Studio.}
 \end{figure}
 
-Se vizualiza tambión que la documentación tiene una salida html, además podemos ver de que trata la base de datos.
+Se visualiza también que la documentación tiene una salida html, además podemos ver de que trata la base de datos.
 
 Ahora si podemos verificar nuevamente, si el paquete está funcionando correctamente usando la documentación en las funciones y en la base de datos. Para ello usamos la función {\bf check()}, y sus resultados se puede ver en la fig \ref{fig:check_data_funciones}, en la cual se observa  que ya no existe errores, no existen advertencias y no existen notas, entonces funciona correctamente el {\bf NPaqueteR} creado.
 

@@ -85,7 +85,19 @@ REP_file_latex_org <- c( paste( parametros$work_dir, 'Reportes/bibliografia_libr
                          paste( parametros$work_dir, 'Reportes/web-readme.png', sep = ''),
                          paste( parametros$work_dir, 'Reportes/logo.png', sep = ''),
                          paste( parametros$work_dir, 'Reportes/weblogo.png', sep = ''),
-                         paste( parametros$work_dir, 'Reportes/ord-func.png', sep = '')
+                         paste( parametros$work_dir, 'Reportes/ord-func.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/vTuto.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/vi-tuto.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/ws_vt.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/viñeta-tutorial.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/v-article.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/ws-va.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/ws-va1.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/fb.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/fr.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/tw.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/yt.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/news.png', sep = '')
 )
 
 REP_file_latex_des <- c( paste( REP_rep_dir, 'bibliografia_libros.bib', sep = '' ),
@@ -131,7 +143,19 @@ REP_file_latex_des <- c( paste( REP_rep_dir, 'bibliografia_libros.bib', sep = ''
                          paste( REP_rep_dir, 'graficos/web-readme.png', sep = ''),
                          paste( REP_rep_dir, 'graficos/logo.png', sep = ''),
                          paste( REP_rep_dir, 'graficos/weblogo.png', sep = ''),
-                         paste( REP_rep_dir, 'graficos/ord-func.png', sep = '')
+                         paste( REP_rep_dir, 'graficos/ord-func.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/vTuto.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/vi-tuto.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/ws_vt.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/viñeta-tutorial.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/v-article.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/ws-va.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/ws-va1.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/fb.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/fr.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/tw.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/yt.png', sep = ''),
+                         paste( REP_rep_dir, 'graficos/news.png', sep = '')
 )
 
 REP_file_latex_clean <- c( paste( REP_rep_dir, 'bibliografia_libros.bib', sep = '' ),

@@ -50,7 +50,19 @@ REP_file_latex_org <- c( paste( parametros$work_dir, 'Reportes/hombre.png', sep 
                          paste( parametros$work_dir, 'Reportes/web-readme.png', sep = ''),
                          paste( parametros$work_dir, 'Reportes/logo.png', sep = ''),
                          paste( parametros$work_dir, 'Reportes/weblogo.png', sep = ''),
-                         paste( parametros$work_dir, 'Reportes/ord-func.png', sep = '')
+                         paste( parametros$work_dir, 'Reportes/ord-func.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/vTuto.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/vi-tuto.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/ws_vt.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/viñeta-tutorial.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/v-article.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/ws-va.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/ws-va1.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/fb.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/fr.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/tw.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/yt.png', sep = ''),
+                         paste( parametros$work_dir, 'Reportes/news.png', sep = '')
 )
 
 REP_file_latex_des <- c( paste( parametros$resultado_seguro, 'graficos/hombre.png', sep = '' ),
@@ -93,7 +105,19 @@ REP_file_latex_des <- c( paste( parametros$resultado_seguro, 'graficos/hombre.pn
                          paste( parametros$resultado_seguro, 'graficos/web-readme.png', sep = ''),
                          paste( parametros$resultado_seguro, 'graficos/logo.png', sep = ''),
                          paste( parametros$resultado_seguro, 'graficos/weblogo.png', sep = ''),
-                         paste( parametros$resultado_seguro, 'graficos/ord-func.png', sep = '')
+                         paste( parametros$resultado_seguro, 'graficos/ord-func.png', sep = ''),
+                         paste( parametros$resultado_seguro, 'graficos/vTuto.png', sep = ''),
+                         paste( parametros$resultado_seguro, 'graficos/vi-tuto.png', sep = ''),
+                         paste( parametros$resultado_seguro, 'graficos/ws_vt.png', sep = ''),
+                         paste( parametros$resultado_seguro, 'graficos/viñeta-tutorial.png', sep = ''),
+                         paste( parametros$resultado_seguro, 'graficos/v-article.png', sep = ''),
+                         paste( parametros$resultado_seguro, 'graficos/ws-va.png', sep = ''),
+                         paste( parametros$resultado_seguro, 'graficos/ws-va1.png', sep = ''),
+                         paste( parametros$resultado_seguro, 'graficos/fb.png', sep = ''),
+                         paste( parametros$resultado_seguro, 'graficos/fr.png', sep = ''),
+                         paste( parametros$resultado_seguro, 'graficos/tw.png', sep = ''),
+                         paste( parametros$resultado_seguro, 'graficos/yt.png', sep = ''),
+                         paste( parametros$resultado_seguro, 'graficos/news.png', sep = '')
 )
 
 file.copy( REP_file_latex_org, REP_file_latex_des, overwrite = TRUE  )
